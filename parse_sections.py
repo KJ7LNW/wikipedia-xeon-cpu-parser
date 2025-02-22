@@ -38,23 +38,114 @@ def clean_header(header: str) -> Optional[str]:
         
     return header
 
+def process_cpulist_fields(platform: str, subtype: str, fields: Dict[str, str]) -> Dict[str, str]:
+    """Process cpulist fields according to template rules."""
+    result = {}
+    
+    # Copy original fields
+    for key, value in fields.items():
+        result[key] = value
+    
+    # Platform specific defaults and calculations
+    if platform == 'lake-e' and subtype == 'skylake_e':
+        # L2 cache calculation
+        if 'cores' in fields and 'l2' not in fields:
+            cores = int(fields['cores'])
+            result['l2'] = f"{cores} × 1 MB"
+        
+        # Socket defaults
+        if 'sock' in fields:
+            sock = fields['sock']
+            if sock.isdigit():
+                result['sock'] = f"LGA {sock}"
+        
+        # Memory formatting
+        if 'mem' in fields:
+            mem = fields['mem']
+            if not mem.startswith('6×'):
+                result['mem'] = f"6× {mem}"
+        
+        # I/O bus formatting
+        if 'upi' in fields:
+            upi = fields['upi']
+            if not 'GT/s' in upi:
+                result['upi'] = f"{upi} GT/s UPI"
+    
+    # Common field formatting
+    if 'cores' in fields and 'threads' in fields:
+        result['cores_threads'] = f"{fields['cores']} ({fields['threads']})"
+    
+    if 'part1' in fields or 'part2' in fields:
+        parts = []
+        if fields.get('part1'):
+            parts.append(fields['part1'])
+        if fields.get('part2'):
+            parts.append(fields['part2'])
+        if parts:
+            result['parts'] = ', '.join(parts)
+    
+    return result
+
 def parse_cpulist(cpulist: str) -> Dict[str, str]:
-    """Parse a cpulist template into raw key-value pairs."""
-    match = re.match(r'\{\{cpulist\|(.*?)\}\}', cpulist)
+    """Parse a cpulist template into processed fields."""
+    # Extract everything between {{ and }}
+    match = re.match(r'\{\{cpulist\|(.*?)\}\}', cpulist, re.DOTALL)
     if not match:
         return {}
     
     content = match.group(1)
-    parts = content.split('|')
+    parts = re.split(r'(?<!\\)\|', content)
     
-    # Process all parts after platform identifiers
+    # Extract platform identifiers
+    platform = parts[0].strip()
+    subtype = parts[1].strip() if len(parts) > 1 else ''
+    
+    # Process key-value pairs
     fields = {}
-    for part in parts[2:]:  # Skip platform identifiers
+    for part in parts[2:]:
         if '=' in part:
             key, value = part.split('=', 1)
-            fields[key] = value
+            key = key.strip()
+            value = value.strip()
+            if value:  # Only store non-empty values
+                fields[key] = value
     
-    return fields
+    # Process fields according to template rules
+    return process_cpulist_fields(platform, subtype, fields)
+
+def map_fields_to_headers(fields: Dict[str, str], headers: List[str]) -> Dict[str, str]:
+    """Map processed fields to table headers."""
+    result = {header: '' for header in headers}
+    
+    # Direct field mappings
+    field_to_header = {
+        'model': 'Model number',
+        'sspec1': 'sSpec number',
+        'cores_threads': 'Cores (threads)',
+        'turbo': 'Turbo Boost all-core/2.0)',
+        'l2': 'L2 cache',
+        'l3': 'L3 cache',
+        'tdp': 'TDP',
+        'sock': 'Socket',
+        'upi': 'I/O bus',
+        'mem': 'Memory',
+        'date': 'Release date',
+        'parts': 'Part number(s)',
+        'price': 'Release price (USD)'
+    }
+    
+    # Map fields to headers
+    for field, header in field_to_header.items():
+        if field in fields and header in result:
+            value = fields[field]
+            # Add units where needed
+            if field == 'tdp' and not value.endswith('W'):
+                value = f"{value} W"
+            elif field == 'l3' and not value.endswith('MB'):
+                value = f"{value} MB"
+            result[header] = value
+    
+    return result
 
 def parse_sections(filename: str) -> Dict[str, Dict[str, List[Dict[str, str]]]]:
     """Parse sections and their content from the file."""
@@ -89,15 +180,8 @@ def parse_sections(filename: str) -> Dict[str, Dict[str, List[Dict[str, str]]]]:
             for cpu_match in cpulist_matches:
                 cpulist = cpu_match.group(0)
                 fields = parse_cpulist(cpulist)
-                
-                # Create entry with all headers initialized to empty strings
-                entry = {header: '' for header in headers}
-                
-                # Map raw fields to entry
-                for key, value in fields.items():
-                    entry[key] = value
-                
-                cpu_entries.append(entry)
+                mapped_fields = map_fields_to_headers(fields, headers)
+                cpu_entries.append(mapped_fields)
             
             sections[section_name] = {
                 'headers': headers,
