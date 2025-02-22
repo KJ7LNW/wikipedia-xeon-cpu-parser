@@ -46,7 +46,6 @@ The following shows 16+ core CPUs between 150-205W TDP with base frequency ≥3.
 ./parse_sections.py -c 16 -w 150 -W 205 -f 3.0 -t -s corehz -i 6234 -i 6246r 2025-02-21--xeon-scalable-v2-data.txt
 ```
 
-```
 === Xeon Gold (dual processor) ===
 
 Matching Entries (3):
@@ -77,7 +76,6 @@ Matching Entries (1):
 |Model number | Cores (threads) | Frequency | Turbo Boost all-core/2.0) | L2 cache | L3 cache | Total Cache | TDP | GHz-cores|
 |--- | --- | --- | --- | --- | --- | --- | --- | ---|
 |Xeon Platinum 8222L | 18 (36) | 3.0 GHz | 3.4/3.5 GHz | 18 × 1.0 MB | 24.75 MB | 42.75 MB | 200 W | 54.0|
-```
 
 The output shows:
 - Entries sorted by GHz-cores (base frequency × cores)
