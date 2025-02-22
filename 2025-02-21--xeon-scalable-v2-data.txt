@@ -1,0 +1,188 @@
+=== Xeon Gold (dual processor) ===
+
+{| class="wikitable sortable"
+
+! Model<br />number
+! sSpec<br />number
+! Cores<br />(threads)
+! Frequency
+! [[Intel Turbo Boost|Turbo Boost]]<br />all-core/2.0)
+![[CPU cache#Multi-level caches|L2<br />cache]]
+![[CPU cache#Multi-level caches|L3<br />cache]]
+![[Thermal design power|TDP]]
+![[CPU socket|Socket]]
+! I/O bus
+![[Memory controller|Memory]]
+! style="text-align:right;" {{!}} Release date
+! Part<br />number(s)
+! Release<br />price ([[United States dollar|USD]])
+
+<!-- enable when needed by moving above this line
+{{{delim|{{!}}}}} {{{mult|}}}
+-->
+
+|-
+
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5215|ark=193391|sspec1=SRFBC|step1=B1|cores=10|threads=20|l3=13.75|mult=25|turbo=2.5/3.4 GHz|upi=2× 10.4|tdp=85|mem=6× DDR4-2666|date=Q2 2019||sock=3647|part1=|part2=CD8069504214002|price=$1221}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5218R|ark=199342|sspec1=SRGZ7|step1=B1|cores=20|threads=40|l3=27.5|mult=21|turbo=2.8/4.0 GHz|upi=2× 10.4|tdp=125|mem=6× DDR4-2666|date=24 February 2020||sock=3647|part1=CD8069504446300|part2=BX806955218R|price=$1273}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5219Y|ark=192454|sspec1=SRF8C|step1=B1|cores=16|threads=32|l3=22|mult=24|turbo=2.7/4.0 GHz|upi=2× 10.4|tdp=125|mem=6× DDR4-2666|date=Q2 2019||sock=3647|part1=CD8069504184202|price=}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5220R|ark=199354|sspec1=SRGZP|step1=B1|cores=24|threads=48|l3=35.75|mult=22|turbo=2.4/4.0 GHz|upi=2× 10.4|tdp=150|mem=6× DDR4-2666|date=24 February 2020||sock=3647|part1=CD8069504451301|part2=BX806955220R|price=$1555}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6222|ark=192441|sspec1=SRF8D|step1=B1|cores=20|threads=40|l3=27.5|mult=18|turbo=2.2/3.6 GHz|upi=2× 10.4|tdp=115|mem=6× DDR4-2400|date=Q2 2019||sock=3647|part1=CD8069504184502|price=$1600}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6226R|ark=199347|sspec1=SRGZC|step1=B1|cores=16|threads=32|l3=22|mult=29|turbo=3.6/3.9 GHz|upi=2× 10.4|tdp=150|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504449000|part2=BX806956226R|price=$1300}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6230R|ark=199346|sspec1=SRGZA|step1=B1|cores=26|threads=52|l3=35.75|mult=21|turbo=2.3/4.0 GHz|upi=2× 10.4|tdp=150|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504448800|part2=BX806956230R|price=$1894}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6238R|ark=199345|sspec1=SRGZ9|step1=B1|cores=28|threads=56|l3=38.5|mult=22|turbo=2.4/4.0 GHz|upi=2× 10.4|tdp=165|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504448701|part2=BX806956238R|price=$2612}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6240R|ark=199343|sspec1=SRGZ8|step1=B1|cores=24|threads=48|l3=35.75|mult=24|turbo=3.2/4.0 GHz|upi=2× 10.4|tdp=165|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504448600|part2=BX806956240R|price=$2200}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6242R|ark=199352|sspec1=SRGZJ|step1=B1|cores=20|threads=40|l3=35.75|mult=31|turbo=3.3/4.1 GHz|upi=2× 10.4|tdp=205|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504449601|price=$2529}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6246R|ark=199353|sspec1=SRGZL|step1=B1|cores=16|threads=32|l3=35.75|mult=34|turbo=3.6/4.1 GHz|upi=2× 10.4|tdp=205|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504449801|price=$3286}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6248R|ark=199351|sspec1=SRGZG|step1=B1|cores=24|threads=48|l3=35.75|mult=30|turbo=3.6/4.0 GHz|upi=2× 10.4|tdp=205|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504449401|price=$2700}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6258R|ark=199350|sspec1=SRGZF|step1=B1|cores=28|threads=56|l3=38.5|mult=27|turbo=2.7/4.0 GHz|upi=2× 10.4|tdp=205|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504449301|price=$3950}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6262|ark=192449|sspec1=SRF8E|step1=B1|cores=24|threads=48|l3=33|mult=19|turbo=2.4/3.6 GHz|upi=2× 10.4|tdp=135|mem=6× DDR4-2400|date=Q2 2019||sock=3647|part1=CD8069504184602|price=$2900}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6269Y|ark=192458|sspec1=SRF8B|step1=B1|cores=22|threads=44|l3=30.25|mult=32|turbo=3.4/3.7 GHz|upi=2× 10.4|tdp=240|mem=6× DDR4-2666|date=Q2 2019||sock=3647|part1=CD8069504184102|price=}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6290|ark=|sspec1=SRG30|step1=B1|cores=22|threads=44|l3=30.25|mult=32|turbo=3.6/3.9 GHz|upi=2× 10.4|tdp=240|mem=6× DDR4-2666|date=Q2 2019||sock=3647|part1=|price=OEM}}
+|}
+
+
+=== Xeon Gold (quad processor) ===
+
+{| class="wikitable sortable"
+
+! Model<br />number
+! sSpec<br />number
+! Cores<br />(threads)
+! Frequency
+! [[Intel Turbo Boost|Turbo Boost]]<br />all-core/2.0)
+![[CPU cache#Multi-level caches|L2<br />cache]]
+![[CPU cache#Multi-level caches|L3<br />cache]]
+![[Thermal design power|TDP]]
+![[CPU socket|Socket]]
+! I/O bus
+![[Memory controller|Memory]]
+! style="text-align:right;" {{!}} Release date
+! Part<br />number(s)
+! Release<br />price ([[United States dollar|USD]])
+
+<!-- enable when needed by moving above this line
+{{{delim|{{!}}}}} {{{mult|}}}
+-->
+
+|-
+
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5213W|ark=|sspec1=|step1=L1|cores=10|threads=20|l3=13.75|mult=27|turbo=3.3/4.3 GHz|upi=2× 10.4|tdp=100|mem=6× DDR4-2666|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5215|ark=193391|sspec1=SRFBC|step1=L1|cores=10|threads=20|l3=13.75|mult=25|turbo=3.0/3.4 GHz|upi=2× 10.4|tdp=85|mem=6× DDR4-2666|date=2 April 2019||sock=3647|part1=CD8069504214002|price=$1221}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5215L|ark=193393|sspec1=SRFBE|step1=L1|cores=10|threads=20|l3=13.75|mult=25|turbo=3.0/3.4 GHz|upi=2× 10.4|tdp=85|mem=6× DDR4-2666|date=2 April 2019||sock=3647|part1=CD8069504214202|price=$9119}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5215M|ark=193392|sspec1=SRFBD|step1=L1|cores=10|threads=20|l3=13.75|mult=25|turbo=3.0/3.4 GHz|upi=2× 10.4|tdp=85|mem=6× DDR4-2666|date=2 April 2019||sock=3647|part1=CD8069504214102|price=$4224}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5216W|ark=|sspec1=|step1=L1|cores=8|threads=16|l3=16.5|mult=35|turbo=3.8/4.2 GHz|upi=2× 10.4|tdp=160|mem=6× DDR4-2666|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5217|ark=193396|sspec1=SRFBF|step1=L1|cores=8|threads=16|l3=11|mult=30|turbo=3.4/3.7 GHz|upi=2× 10.4|tdp=115|mem=6× DDR4-2666|date=2 April 2019||sock=3647|part1=CD8069504214302|price=$1522}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5218|ark=192444|sspec1=SRF8T|step1=B1|cores=16|threads=32|l3=22|mult=23|turbo=2.8/3.9 GHz|upi=2× 10.4|tdp=125|mem=6× DDR4-2666|date=2 April 2019||sock=3647|part1=CD8069504193301|part2=BX806955218|price=$1273}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5218B|ark=193564|sspec1=SRFDJ|step1=L1|cores=16|threads=32|l3=22|mult=23|turbo=2.8/3.9 GHz|upi=2× 10.4|tdp=125|mem=6× DDR4-2666|date=2 April 2019||sock=3647|part1=CD8069504295701|price=$1273}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5218N|ark=193397|sspec1=SRFD9|sspec2=SRGLN|step1=L1|step2=L1|cores=16|threads=32|l3=22|mult=23|turbo=3.0/3.7 GHz|upi=2× 10.4|tdp=125 W<br />110|mem=6× DDR4-2666|date=2 April 2019||sock=3647|part1=CD8069504289900|part2=CD8069504384601|price=$1375}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5218T|ark=193953|sspec1=SRFPM|step1=B1|cores=16|threads=32|l3=22|mult=21|turbo=2.7/3.8 GHz|upi=2× 10.4|tdp=105|mem=6× DDR4-2666|date=May 2019||sock=3647|part1=CD8069504283204|price=$1349}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5220|ark=193388|sspec1=SRFBJ|step1=L1|cores=18|threads=36|l3=24.75|mult=22|turbo=2.7/3.9 GHz|upi=2× 10.4|tdp=125|mem=6× DDR4-2666|date=2 April 2019||sock=3647|part1=CD8069504214601|part2=BX806955220|price=$1555}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5220S|ark=193950|sspec1=SRFPT|step1=B1|cores=18|threads=36|l3=24.75|mult=27|turbo=2.7/3.9 GHz|upi=2× 10.4|tdp=125|mem=6× DDR4-2666|date=May 2019||sock=3647|part1=CD8069504283804|price=$2000}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5220T|ark=193970|sspec1=SRFPK|step1=B1|cores=18|threads=36|l3=24.75|mult=19|turbo=2.7/3.9 GHz|upi=2× 10.4|tdp=105|mem=6× DDR4-2666|date=May 2019||sock=3647|part1=CD8069504283006|price=$1727}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 5222|ark=192445|sspec1=SRF8V|step1=B1|cores=4|threads=8|l3=16.5|mult=38|turbo=3.9/3.9 GHz|upi=2× 10.4|tdp=105|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504193501|price=$1221}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6222V|ark=193962|sspec1=SRFQ5|step1=B1|cores=20|threads=40|l3=27.5|mult=18|turbo=2.4/3.6 GHz|upi=3× 10.4|tdp=115|mem=6× DDR4-2400|date=May 2019||sock=3647|part1=CD8069504285204|price=$1600}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6226|ark=193957|sspec1=SRFPP|step1=B1|cores=12|threads=24|l3=19.25|mult=27|turbo=3.5/3.7 GHz|upi=3× 10.4|tdp=125|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504283404|price=$1776}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6230|ark=192437|sspec1=SRF8W|step1=B1|cores=20|threads=40|l3=27.5|mult=21|turbo=2.8/3.9 GHz|upi=3× 10.4|tdp=125|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504193701|part2=BX806956230|price=$1894}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6230N|ark=192450|sspec1=SRFPR|step1=B1|cores=20|threads=40|l3=27.5|mult=23|turbo=2.9/3.5 GHz|upi=3× 10.4|tdp=125|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504283604|price=$2046}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6230T|ark=193952|sspec1=SRFPS|step1=B1|cores=20|threads=40|l3=27.5|mult=21|turbo=2.8/3.9 GHz|upi=3× 10.4|tdp=125|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504283704|price=$1988}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6231|ark=|sspec1=|step1=B1|cores=16|threads=32|l3=22|mult=32|turbo=?/3.9 GHz|upi=3× 10.4|tdp=185|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6231C|ark=|sspec1=SRF8F|step1=B1|cores=16|threads=32|l3=22|mult=32|turbo=3.7/3.9 GHz|upi=3× 10.4|tdp=185|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6233|ark=|sspec1=|step1=B1|cores=24|threads=48|l3=33|mult=25|turbo=?/3.9 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6234|ark=193954|sspec1=SRFPN|step1=B1|cores=8|threads=16|l3=24.75|mult=33|turbo=4.0/4.0 GHz|upi=3× 10.4|tdp=130|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504283304|price=$2214}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6238|ark=193949|sspec1=SRFPL|step1=B1|cores=22|threads=44|l3=30.25|mult=21|turbo=2.8/3.7 GHz|upi=3× 10.4|tdp=140|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504283104|price=$2612}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6238L|ark=193958|sspec1=SRFQ2|step1=B1|cores=22|threads=44|l3=30.25|mult=21|turbo=2.8/3.7 GHz|upi=3× 10.4|tdp=140|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504284704|price=$10,510}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6238M|ark=193955|sspec1=SRFQ1|step1=B1|cores=22|threads=44|l3=30.25|mult=21|turbo=2.8/3.7 GHz|upi=3× 10.4|tdp=140|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504284604|price=$5615}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6238T|ark=192439|sspec1=SRF9C|step1=B1|cores=22|threads=44|l3=30.25|mult=19|turbo=2.7/3.7 GHz|upi=3× 10.4|tdp=125|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504200401|price=$2742}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6240|ark=192443|sspec1=SRF8X|step1=B1|cores=18|threads=36|l3=24.75|mult=26|turbo=3.3/3.9 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504194001|part2=BX806956240|price=$2445}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6240L|ark=193959|sspec1=SRFQ0|step1=B1|cores=18|threads=36|l3=24.75|mult=26|turbo=3.3/3.9 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504284503|price=$10,243}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6240M|ark=193960|sspec1=SRFPZ|step1=B1|cores=18|threads=36|l3=24.75|mult=26|turbo=3.3/3.9 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504284403|price=$5448}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6240Y|ark=192448|sspec1=SRF9D|step1=B1|cores=18|threads=36|l3=24.75|mult=26|turbo=3.3/3.9 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504200501|price=$2726}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6240C|ark=|sspec1=|step1=B1|cores=18|threads=36|l3=24.75|mult=26|turbo=3.6/3.9 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6241W|ark=|sspec1=SRF9Y|step1=|cores=16|threads=32|l3=22|mult=32|turbo=4.2/4.4 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=||sock=3647|part1=|part2=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6242|ark=192440|sspec1=SRF8Y|step1=B1|cores=16|threads=32|l3=22|mult=28|turbo=3.5/3.9 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504194101|part2=BX806956242|price=$2529}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6244|ark=192442|sspec1=SRF8Z|step1=B1|cores=8|threads=16|l3=24.75|mult=36|turbo=4.3/4.4 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504194202|price=$2925}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6245W|ark=|sspec1=|step1=|cores=12|threads=24|l3=19.25|mult=33|turbo=4.1/4.4 GHz|upi=3× 10.4|tdp=180|mem=6× DDR4-2933|date=||sock=3647|part1=|part2=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6246|ark=193969|sspec1=SRFPJ|step1=B1|cores=12|threads=24|l3=24.75|mult=33|turbo=4.1/4.2 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504282905|price=$3286}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6248|ark=192446|sspec1=SRF90|step1=B1|cores=20|threads=40|l3=27.5|mult=25|turbo=3.2/3.9 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504194301|part2=BX806956248|price=$3072}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6249C|ark=|sspec1=|step1=B1|cores=26|threads=52|l3=35.75|mult=26|turbo={{n/a}}|upi=3× 10.4|tdp=|mem=6× DDR4-2933|date=||sock=3647|part1=|part2=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6250|ark=198652|sspec1=SRGTR|step1=B1|cores=8|threads=16|l3=35.75|mult=39|turbo=4.5/4.5 GHz|upi=3× 10.4|tdp=185|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504425402|part2=|price=$3400}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6250L|ark=202780|sspec1=SRH5D|step1=B1|cores=8|threads=16|l3=35.75|mult=39|turbo=4.5/4.5 GHz|upi=3× 10.4|tdp=185|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504497400|part2=|price=$6404}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6252|ark=192447|sspec1=SRF91|step1=B1|cores=24|threads=48|l3=35.75|mult=21|turbo=2.8/3.7 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504194401|part2=BX806956252|price=$3655}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6252N|ark=193951|sspec1=SRFPQ|step1=B1|cores=24|threads=48|l3=35.75|mult=23|turbo=3.0/3.6 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2933|date=May 2019||sock=3647|part1=CD8069504283503|price=$4259}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6253W|ark=|sspec1=|step1=|cores=18|threads=36|l3=24.75|mult=31|turbo=4.1/4.4 GHz|upi=3× 10.4|tdp=200|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6253CL|ark=|sspec1=SRF7Z|step1=B1|cores=18|threads=36|l3=24.75|mult=31|turbo=3.8/3.9 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6254|ark=192451|sspec1=SRF92|step1=B1|cores=18|threads=36|l3=24.75|mult=31|turbo=3.9/4.0 GHz|upi=3× 10.4|tdp=200|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504194501|price=$3803}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6256|ark=198655|sspec1=SRGTQ|step1=B1|cores=12|threads=24|l3=33|mult=36|turbo=4.3/4.5 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=24 February 2020||sock=3647|part1=CD8069504425301|price=$3900}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6261|ark=|sspec1=|step1=B1|cores=22|threads=44|l3=30.25|mult=30|turbo=3.2/3.4 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6262V|ark=193972|sspec1=SRFQ4|step1=B1|cores=24|threads=48|l3=33|mult=19|turbo=2.5/3.6 GHz|upi=3× 10.4|tdp=135|mem=6× DDR4-2400|date=May 2019||sock=3647|part1=CD8069504285004|price=$2900}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6263CY|ark=|sspec1=|step1=B1|cores=24|threads=48|l3=33|mult=26|turbo=3.7/4.0 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6266C|ark=|sspec1=SRF83|step1=B1|cores=22|threads=44|l3=30.25|mult=30|turbo=3.2/3.4 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6267|ark=|sspec1=SRFQ7|step1=|cores=24|threads=48|l3=33|mult=26|turbo=3.1/3.4 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6267C|ark=|sspec1=SRF87|step1=|cores=24|threads=48|l3=33|mult=26|turbo=?/3.4 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6268CL|ark=|sspec1=SRF80|step1=B1|cores=24|threads=48|l3=33|mult=28|turbo=3.4/3.9 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6271C|ark=|sspec1=SRF8M|step1=B1|cores=24|threads=48|l3=33|mult=26|turbo=3.1/3.9 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6273C|ark=|sspec1=SRFQ6|step1=B1|cores=26|threads=52|l3=35.75|mult=22|turbo=3.2/3.5 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6278C|ark=|sspec1=SRF86|step1=B1|cores=26|threads=52|l3=35.75|mult=26|turbo=3.3/3.5 GHz|upi=3× 10.4|tdp=185|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Gold 6290|ark=|sspec1=|step1=|cores=22|threads=44|l3=30.25|mult=32|turbo=3.6/3.9 GHz|upi=3× 10.4|tdp=240|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+|}
+
+
+=== Xeon Platinum (octa processor) ===
+
+{| class="wikitable sortable"
+
+! Model<br />number
+! sSpec<br />number
+! Cores<br />(threads)
+! Frequency
+! [[Intel Turbo Boost|Turbo Boost]]<br />all-core/2.0)
+![[CPU cache#Multi-level caches|L2<br />cache]]
+![[CPU cache#Multi-level caches|L3<br />cache]]
+![[Thermal design power|TDP]]
+![[CPU socket|Socket]]
+! I/O bus
+![[Memory controller|Memory]]
+! style="text-align:right;" {{!}} Release date
+! Part<br />number(s)
+! Release<br />price ([[United States dollar|USD]])
+
+<!-- enable when needed by moving above this line
+{{{delim|{{!}}}}} {{{mult|}}}
+-->
+
+|-
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8222L|ark=|sspec1=SRFA7|step1=B1|cores=18|threads=36|l3=24.75|mult=30|turbo=3.4/3.5 GHz|upi=3× 10.4|tdp=200|mem=6× DDR4-2666|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8223CL|ark=|sspec1=SRGTN|step1=B1|cores=18|threads=36|l3=24.75|mult=30|turbo=3.4/3.5 GHz|upi=3× 10.4|tdp=240|mem=6× DDR4-2666|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8249C|ark=|sspec1=SRFQ9|step1=B1|cores=26|threads=52|l3=35.75|mult=21|turbo=2.7/3.6 GHz|upi=3× 10.4|tdp=150|mem=6× DDR4-2666|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8251|ark=|sspec1=SRF8R|step1=B1|cores=12|threads=24|l3=24.75|mult=38|turbo=？/4.2 GHz|upi=3× 10.4|tdp=240|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8252C|ark=|sspec1=SRGTP|step1=B1|cores=12|threads=24|l3=24.75|mult=38|turbo=4.5/4.5 GHz|upi=3× 10.4|tdp=240|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8253|ark=192465|sspec1=SRF93|step1=B1|cores=16|threads=32|l3=22|mult=22|turbo=2.5/3.0 GHz|upi=3× 10.4|tdp=125|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504194601|price=$3115}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8255C|ark=|sspec1=SRFQC|step1=B1|cores=24|threads=48|l3=35.75|mult=25|turbo=？/3.9 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8256|ark=192467|sspec1=SRF94|step1=B1|cores=4|threads=8|l3=16.5|mult=38|turbo=3.9/3.9 GHz|upi=3× 10.4|tdp=105|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504194701|part2=BX806958256|price=$7007}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8259L||sspec1=SRFA8|step1=B1|cores=24|threads=48|l3=35.75|mult=25|turbo=3.1/3.5 GHz|upi=3× 10.4|tdp=210|mem=6× DDR4-2666|date=||sock=3647||price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8259CL||sspec1=SRFA8|step1=B1|cores=24|threads=48|l3=35.75|mult=25|turbo=3.1/3.5 GHz|upi=3× 10.4|tdp=210|mem=6× DDR4-2666|date=||sock=3647||price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8260|ark=192474|sspec1=SRF9H|step1=B1|cores=24|threads=48|l3=35.75|mult=24|turbo=3.1/3.9 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504201101|price=$4702}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8260L|ark=192476|sspec1=SRF9G|step1=B1|cores=24|threads=48|l3=35.75|mult=24|turbo=3.1/3.9 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504201001|price=$12,599}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8260M|ark=192477|sspec1=SRF9J|step1=B1|cores=24|threads=48|l3=35.75|mult=24|turbo=3.1/3.9 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504201201|price=$7705}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8260Y|ark=192480|sspec1=SRF9F|step1=B1|cores=24|threads=48|l3=35.75|mult=24|turbo=3.1/3.9 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504200902|price=$5320}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8263C|ark=|sspec1=SRFQ8|step1=|cores=26|threads=52|l3=35.75|mult=25|turbo=?/3.8 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8267W|ark=|sspec1=SRF9N|step1=|cores=24|threads=48|l3=33|mult=27|turbo=4.2/4.4 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8268|ark=192481|sspec1=SRF95|step1=B1|cores=24|threads=48|l3=35.75|mult=29|turbo=3.5/3.9 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504195101|price=$6302}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8269CY|ark=|sspec1=SRF8J|step1=B1|cores=26|threads=52|l3=35.75|mult=25|turbo=3.3/3.8 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2666|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8270|ark=192482|sspec1=SRF96|step1=B1|cores=26|threads=52|l3=35.75|mult=27|turbo=3.4/4.0 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504195201|price=$7405}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8272L|ark=|sspec1=SRF89|step1=B1|cores=26|threads=52|l3=35.75|mult=26|turbo=3.4/3.7 GHz|upi=3× 10.4|tdp=195|mem=6× DDR4-2666|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8272CL|ark=|sspec1=SRF89|step1=B1|cores=26|threads=52|l3=35.75|mult=26|turbo=3.4/3.7 GHz|upi=3× 10.4|tdp=195|mem=6× DDR4-2666|date=Q4 2019||sock=3647|part1=L950G305|price=OEM (Microsoft)}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8273CL|ark=|sspec1=SRF81|step1=|cores=28|threads=56|l3=38.5|mult=22|turbo=2.9/3.7 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8274|ark=192487|sspec1=SRFPX|step1=B1|cores=24|threads=48|l3=35.75|mult=32|turbo=3.2/4.0 GHz|upi=3× 10.4|tdp=240|mem=6× DDR4-2933|date=Q2 2019||sock=3647|part1=CD8069504284203|price=}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8275CL|ark=|sspec1=SRFA9|step1=B1|cores=24|threads=48|l3=35.75|mult=30|turbo=3.6/3.9 GHz|upi=3× 10.4|tdp=240|mem=6× DDR4-2933|date=||sock=3647||price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8276|ark=192470|sspec1=SRF99|step1=B1|cores=28|threads=56|l3=38.5|mult=22|turbo=3.0/4.0 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504195501|price=$8719}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8276L|ark=192475|sspec1=SRF97|step1=B1|cores=28|threads=56|l3=38.5|mult=22|turbo=3.0/4.0 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504195301|price=$16,616}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8276M|ark=192471|sspec1=SRF98|step1=B1|cores=28|threads=56|l3=38.5|mult=22|turbo=3.0/4.0 GHz|upi=3× 10.4|tdp=165|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504195401|price=$11,722}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8279W|ark=|sspec1=SRGWA|step1=B1|cores=28|threads=56|l3=38.5|mult=25|turbo=3.2/4.6 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=||sock=3647|part1=|price=OEM}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8280|ark=192478|sspec1=SRF9P|step1=B1|cores=28|threads=56|l3=38.5|mult=27|turbo=3.3/4.0 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504228001|price=$10,009}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8280L|ark=192472|sspec1=SRF9R|step1=B1|cores=28|threads=56|l3=38.5|mult=27|turbo=3.3/4.0 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504228201|price=$17,906}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8280M|ark=192473|sspec1=SRF9Q|step1=B1|cores=28|threads=56|l3=38.5|mult=27|turbo=3.3/4.0 GHz|upi=3× 10.4|tdp=205|mem=6× DDR4-2933|date=2 April 2019||sock=3647|part1=CD8069504228101|price=$13,012}}
+{{cpulist|lake-e|skylake_e|model=Xeon Platinum 8284|ark=193956|sspec1=SRFPY|step1=B1|cores=28|threads=56|l3=38.5|mult=30|turbo=3.0/4.0 GHz|upi=3× 10.4|tdp=240|mem=6× DDR4-2933|date=Q2 2019||sock=3647|part1=CD8069504284302|price=$15,460}}
+|}
+
