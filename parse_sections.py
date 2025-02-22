@@ -84,37 +84,16 @@ def process_cpulist_fields(platform: str, subtype: str, fields: Dict[str, str]) 
         if parts:
             result['parts'] = ', '.join(parts)
     
-    # Calculate base frequency from FSB and multiplier
-    if 'fsb' in fields and 'mult' in fields:
+    # Calculate base frequency from multiplier (FSB is always 100 MHz)
+    if 'mult' in fields:
         try:
-            fsb = float(fields['fsb'])
             mult = float(fields['mult'])
-            # FSB is in MT/s, divide by 4 to get base clock, multiply by mult for frequency
-            freq = (fsb/4 * mult) / 1000  # Convert to GHz
+            freq = (100 * mult) / 1000  # Convert to GHz
             result['freq'] = f"{freq:.1f} GHz"
         except ValueError:
-            pass
-    # Otherwise try to get frequency from turbo field (first number is base)
-    elif 'turbo' in fields:
-        turbo = fields['turbo']
-        if '/' in turbo:
-            base_freq = turbo.split('/')[0]
-            if base_freq != '?' and not base_freq.startswith('{{'):
-                result['freq'] = f"{base_freq} GHz"
-    # Finally try freq field if provided
-    elif 'freq' in fields:
-        freq = fields['freq']
-        if freq.endswith('GHz'):
-            result['freq'] = freq
-        else:
-            try:
-                freq_val = float(freq)
-                if freq_val < 10:  # Assume GHz if < 10
-                    result['freq'] = f"{freq_val} GHz"
-                else:  # Assume MHz
-                    result['freq'] = f"{freq_val/1000:.1f} GHz"
-            except ValueError:
-                pass
+            raise ValueError("Invalid multiplier value")
+    else:
+        raise ValueError("Missing multiplier for frequency calculation")
     
     return result
 
