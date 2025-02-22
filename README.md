@@ -6,7 +6,7 @@ Parse and analyze Intel Xeon CPU specifications from Wikipedia markup data.
 
 The input files contain raw Wikipedia markup data extracted from CPU specification tables:
 
-- `2025-02-21--xeon-scalable-v2-data.txt`: Cascade Lake Refresh (2nd Generation Scalable) data from February 21, 2025
+- `2025-02-21--xeon-scalable-v2-data.txt`: Cascade Lake Refresh (2nd Generation Scalable) data from [Wikipedia](https://en.wikipedia.org/wiki/List_of_Intel_Xeon_processors_(Cascade_Lake-based)#Xeon_Gold_(quad_processor)) as of February 21, 2025
 
 The markup uses the `cpulist` template format which defines fields like:
 - Model number, cores/threads
