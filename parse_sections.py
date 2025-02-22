@@ -84,6 +84,38 @@ def process_cpulist_fields(platform: str, subtype: str, fields: Dict[str, str]) 
         if parts:
             result['parts'] = ', '.join(parts)
     
+    # Calculate base frequency from FSB and multiplier
+    if 'fsb' in fields and 'mult' in fields:
+        try:
+            fsb = float(fields['fsb'])
+            mult = float(fields['mult'])
+            # FSB is in MT/s, divide by 4 to get base clock, multiply by mult for frequency
+            freq = (fsb/4 * mult) / 1000  # Convert to GHz
+            result['freq'] = f"{freq:.1f} GHz"
+        except ValueError:
+            pass
+    # Otherwise try to get frequency from turbo field (first number is base)
+    elif 'turbo' in fields:
+        turbo = fields['turbo']
+        if '/' in turbo:
+            base_freq = turbo.split('/')[0]
+            if base_freq != '?' and not base_freq.startswith('{{'):
+                result['freq'] = f"{base_freq} GHz"
+    # Finally try freq field if provided
+    elif 'freq' in fields:
+        freq = fields['freq']
+        if freq.endswith('GHz'):
+            result['freq'] = freq
+        else:
+            try:
+                freq_val = float(freq)
+                if freq_val < 10:  # Assume GHz if < 10
+                    result['freq'] = f"{freq_val} GHz"
+                else:  # Assume MHz
+                    result['freq'] = f"{freq_val/1000:.1f} GHz"
+            except ValueError:
+                pass
+    
     return result
 
 def parse_cpulist(cpulist: str) -> Dict[str, str]:
@@ -122,6 +154,7 @@ def map_fields_to_headers(fields: Dict[str, str], headers: List[str]) -> Dict[st
         'model': 'Model number',
         'sspec1': 'sSpec number',
         'cores_threads': 'Cores (threads)',
+        'freq': 'Frequency',
         'turbo': 'Turbo Boost all-core/2.0)',
         'l2': 'L2 cache',
         'l3': 'L3 cache',
@@ -190,24 +223,78 @@ def parse_sections(filename: str) -> Dict[str, Dict[str, List[Dict[str, str]]]]:
     
     return sections
 
+def parse_args():
+    """Parse command line arguments."""
+    import argparse
+    parser = argparse.ArgumentParser(description='Parse and filter CPU data')
+    parser.add_argument('-f', '--min-base-ghz', type=float, help='Minimum base frequency in GHz')
+    parser.add_argument('-w', '--min-tdp', type=int, help='Minimum TDP in watts')
+    parser.add_argument('-c', '--min-cores', type=int, help='Minimum number of cores')
+    return parser.parse_args()
+
+def filter_entries(entries: List[Dict[str, str]], args) -> List[Dict[str, str]]:
+    """Filter CPU entries based on criteria."""
+    filtered = []
+    for entry in entries:
+        include = True
+        
+        # Check minimum cores
+        if args.min_cores is not None:
+            cores_str = entry.get('Cores (threads)', '')
+            if cores_str:
+                cores = int(cores_str.split()[0])
+                if cores < args.min_cores:
+                    include = False
+        
+        # Check minimum TDP
+        if args.min_tdp is not None and include:
+            tdp_str = entry.get('TDP', '')
+            if tdp_str:
+                tdp = int(tdp_str.split()[0])
+                if tdp < args.min_tdp:
+                    include = False
+        
+        # Check minimum base frequency
+        if args.min_base_ghz is not None and include:
+            freq_str = entry.get('Frequency', '')
+            if freq_str:
+                try:
+                    freq = float(freq_str.split()[0])
+                    if freq < args.min_base_ghz:
+                        include = False
+                except (ValueError, IndexError):
+                    include = False
+        
+        if include:
+            filtered.append(entry)
+    
+    return filtered
+
 def main():
+    args = parse_args()
     sections = parse_sections('data.txt')
+    
     for section_name, section_data in sections.items():
         print(f"\n=== {section_name} ===")
         headers = section_data['headers']
         entries = section_data['entries']
+        
+        # Apply filters
+        filtered_entries = filter_entries(entries, args)
         
         # Print headers
         print("\nHeaders:")
         for i, header in enumerate(headers, 1):
             print(f"{i}. {header}")
         
-        # Print first CPU entry as example
-        if entries:
-            print("\nExample CPU Entry (raw fields):")
-            for key, value in entries[0].items():
+        # Print matching entries
+        print(f"\nMatching Entries ({len(filtered_entries)}):")
+        for entry in filtered_entries:
+            print("\nCPU Entry:")
+            for header in headers:
+                value = entry.get(header, '')
                 if value:
-                    print(f"{key}: {value}")
+                    print(f"{header}: {value}")
 
 if __name__ == '__main__':
     main()
