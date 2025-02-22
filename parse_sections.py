@@ -212,6 +212,7 @@ def parse_args():
     parser.add_argument('-c', '--min-cores', type=int, help='Minimum number of cores')
     parser.add_argument('-s', '--sort', default='Frequency', help='Sort by field name')
     parser.add_argument('-t', '--markdown-table', action='store_true', help='Output as markdown table')
+    parser.add_argument('-i', '--include', action='append', help='Always include entries matching substring (can be specified multiple times)')
     parser.add_argument('--show-all', action='store_true', help='Show all fields (default: show only key fields)')
     return parser.parse_args()
 
@@ -219,6 +220,17 @@ def filter_entries(entries: List[Dict[str, str]], args) -> List[Dict[str, str]]:
     """Filter CPU entries based on criteria."""
     filtered = []
     for entry in entries:
+        # Check if entry matches any include patterns
+        is_included = False
+        if args.include:
+            model = entry.get('Model number', '')
+            for pattern in args.include:
+                if pattern.lower() in model.lower():
+                    is_included = True
+                    # Mark included entries in bold
+                    entry['Model number'] = f"**{model}**"
+                    break
+        
         include = True
         
         # Check minimum cores
@@ -250,7 +262,7 @@ def filter_entries(entries: List[Dict[str, str]], args) -> List[Dict[str, str]]:
                 except (ValueError, IndexError):
                     include = False
         
-        if include:
+        if include or is_included:
             filtered.append(entry)
     
     return filtered
