@@ -229,7 +229,9 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Parse and filter CPU data')
     parser.add_argument('-f', '--min-base-ghz', type=float, help='Minimum base frequency in GHz')
     parser.add_argument('-w', '--min-tdp', type=int, help='Minimum TDP in watts')
+    parser.add_argument('-W', '--max-tdp', type=int, help='Maximum TDP in watts')
     parser.add_argument('-c', '--min-cores', type=int, help='Minimum number of cores')
+    parser.add_argument('--show-all', action='store_true', help='Show all fields (default: show only key fields)')
     return parser.parse_args()
 
 def filter_entries(entries: List[Dict[str, str]], args) -> List[Dict[str, str]]:
@@ -246,12 +248,14 @@ def filter_entries(entries: List[Dict[str, str]], args) -> List[Dict[str, str]]:
                 if cores < args.min_cores:
                     include = False
         
-        # Check minimum TDP
-        if args.min_tdp is not None and include:
+        # Check TDP range
+        if include and (args.min_tdp is not None or args.max_tdp is not None):
             tdp_str = entry.get('TDP', '')
             if tdp_str:
                 tdp = int(tdp_str.split()[0])
-                if tdp < args.min_tdp:
+                if args.min_tdp is not None and tdp < args.min_tdp:
+                    include = False
+                if args.max_tdp is not None and tdp > args.max_tdp:
                     include = False
         
         # Check minimum base frequency
@@ -274,6 +278,17 @@ def main():
     args = parse_args()
     sections = parse_sections('data.txt')
     
+    # Define default fields to show
+    default_fields = [
+        'Model number',
+        'Cores (threads)',
+        'Frequency',
+        'Turbo Boost all-core/2.0)',
+        'L2 cache',
+        'L3 cache',
+        'TDP'
+    ]
+    
     for section_name, section_data in sections.items():
         print(f"\n=== {section_name} ===")
         headers = section_data['headers']
@@ -282,16 +297,13 @@ def main():
         # Apply filters
         filtered_entries = filter_entries(entries, args)
         
-        # Print headers
-        print("\nHeaders:")
-        for i, header in enumerate(headers, 1):
-            print(f"{i}. {header}")
-        
         # Print matching entries
         print(f"\nMatching Entries ({len(filtered_entries)}):")
         for entry in filtered_entries:
             print("\nCPU Entry:")
-            for header in headers:
+            # Show all fields or just default fields
+            display_fields = headers if args.show_all else default_fields
+            for header in display_fields:
                 value = entry.get(header, '')
                 if value:
                     print(f"{header}: {value}")
