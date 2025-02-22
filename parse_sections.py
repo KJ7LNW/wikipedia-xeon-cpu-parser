@@ -210,6 +210,8 @@ def parse_args():
     parser.add_argument('-w', '--min-tdp', type=int, help='Minimum TDP in watts')
     parser.add_argument('-W', '--max-tdp', type=int, help='Maximum TDP in watts')
     parser.add_argument('-c', '--min-cores', type=int, help='Minimum number of cores')
+    parser.add_argument('-s', '--sort', default='Frequency', help='Sort by field name')
+    parser.add_argument('-t', '--markdown-table', action='store_true', help='Output as markdown table')
     parser.add_argument('--show-all', action='store_true', help='Show all fields (default: show only key fields)')
     return parser.parse_args()
 
@@ -253,6 +255,46 @@ def filter_entries(entries: List[Dict[str, str]], args) -> List[Dict[str, str]]:
     
     return filtered
 
+def sort_entries(entries: List[Dict[str, str]], sort_field: str) -> List[Dict[str, str]]:
+    """Sort entries by the specified field."""
+    def get_sort_key(entry):
+        value = entry.get(sort_field, '')
+        if sort_field == 'Frequency':
+            # Extract numeric value from frequency string (e.g. "3.2 GHz" -> 3.2)
+            try:
+                return float(value.split()[0])
+            except (ValueError, IndexError):
+                return 0
+        elif sort_field == 'Cores (threads)':
+            # Extract core count (e.g. "24 (48)" -> 24)
+            try:
+                return int(value.split()[0])
+            except (ValueError, IndexError):
+                return 0
+        elif sort_field == 'TDP':
+            # Extract TDP value (e.g. "165 W" -> 165)
+            try:
+                return int(value.split()[0])
+            except (ValueError, IndexError):
+                return 0
+        return value
+    
+    return sorted(entries, key=get_sort_key, reverse=True)
+
+def print_markdown_table(entries: List[Dict[str, str]], fields: List[str]):
+    """Print entries in markdown table format."""
+    # Print header row
+    print('|', ' | '.join(fields), '|', sep='')
+    # Print separator row
+    print('|', ' | '.join(['---' for _ in fields]), '|', sep='')
+    # Print data rows
+    for entry in entries:
+        row = []
+        for field in fields:
+            value = entry.get(field, '')
+            row.append(value if value else '-')
+        print('|', ' | '.join(row), '|', sep='')
+
 def main():
     args = parse_args()
     sections = parse_sections('data.txt')
@@ -276,16 +318,24 @@ def main():
         # Apply filters
         filtered_entries = filter_entries(entries, args)
         
+        # Sort entries
+        filtered_entries = sort_entries(filtered_entries, args.sort)
+        
+        # Get display fields
+        display_fields = headers if args.show_all else default_fields
+        
         # Print matching entries
         print(f"\nMatching Entries ({len(filtered_entries)}):")
-        for entry in filtered_entries:
-            print("\nCPU Entry:")
-            # Show all fields or just default fields
-            display_fields = headers if args.show_all else default_fields
-            for header in display_fields:
-                value = entry.get(header, '')
-                if value:
-                    print(f"{header}: {value}")
+        
+        if args.markdown_table:
+            print_markdown_table(filtered_entries, display_fields)
+        else:
+            for entry in filtered_entries:
+                print("\nCPU Entry:")
+                for header in display_fields:
+                    value = entry.get(header, '')
+                    if value:
+                        print(f"{header}: {value}")
 
 if __name__ == '__main__':
     main()
