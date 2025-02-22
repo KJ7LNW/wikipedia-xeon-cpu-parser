@@ -258,41 +258,76 @@ def filter_entries(entries: List[Dict[str, str]], args) -> List[Dict[str, str]]:
 def sort_entries(entries: List[Dict[str, str]], sort_field: str) -> List[Dict[str, str]]:
     """Sort entries by the specified field."""
     def get_sort_key(entry):
-        value = entry.get(sort_field, '')
-        if sort_field == 'Frequency':
+        if sort_field == 'corehz':
+            # Sort by base frequency × cores
+            try:
+                freq = float(entry.get('Frequency', '0 GHz').split()[0])
+                cores = int(entry.get('Cores (threads)', '0').split()[0])
+                return freq * cores
+            except (ValueError, IndexError):
+                return 0
+        elif sort_field == 'corehz-all':
+            # Sort by all-core boost × cores
+            try:
+                turbo = entry.get('Turbo Boost all-core/2.0)', '')
+                all_core = float(turbo.split('/')[0])
+                cores = int(entry.get('Cores (threads)', '0').split()[0])
+                return all_core * cores
+            except (ValueError, IndexError):
+                return 0
+        elif sort_field == 'Frequency':
             # Extract numeric value from frequency string (e.g. "3.2 GHz" -> 3.2)
             try:
-                return float(value.split()[0])
+                return float(entry.get(sort_field, '0 GHz').split()[0])
             except (ValueError, IndexError):
                 return 0
         elif sort_field == 'Cores (threads)':
             # Extract core count (e.g. "24 (48)" -> 24)
             try:
-                return int(value.split()[0])
+                return int(entry.get(sort_field, '0').split()[0])
             except (ValueError, IndexError):
                 return 0
         elif sort_field == 'TDP':
             # Extract TDP value (e.g. "165 W" -> 165)
             try:
-                return int(value.split()[0])
+                return int(entry.get(sort_field, '0 W').split()[0])
             except (ValueError, IndexError):
                 return 0
-        return value
+        return entry.get(sort_field, '')
     
     return sorted(entries, key=get_sort_key, reverse=True)
 
-def print_markdown_table(entries: List[Dict[str, str]], fields: List[str]):
+def print_markdown_table(entries: List[Dict[str, str]], fields: List[str], sort_field: str):
     """Print entries in markdown table format."""
+    # Add GHz-cores column if sorting by corehz/corehz-all
+    display_fields = list(fields)
+    if sort_field in ('corehz', 'corehz-all'):
+        display_fields.append('GHz-cores')
+    
     # Print header row
-    print('|', ' | '.join(fields), '|', sep='')
+    print('|', ' | '.join(display_fields), '|', sep='')
     # Print separator row
-    print('|', ' | '.join(['---' for _ in fields]), '|', sep='')
+    print('|', ' | '.join(['---' for _ in display_fields]), '|', sep='')
     # Print data rows
     for entry in entries:
         row = []
-        for field in fields:
-            value = entry.get(field, '')
-            row.append(value if value else '-')
+        for field in display_fields:
+            if field == 'GHz-cores':
+                try:
+                    if sort_field == 'corehz':
+                        freq = float(entry.get('Frequency', '0 GHz').split()[0])
+                        cores = int(entry.get('Cores (threads)', '0').split()[0])
+                        row.append(f"{freq * cores:.1f}")
+                    else:  # corehz-all
+                        turbo = entry.get('Turbo Boost all-core/2.0)', '')
+                        all_core = float(turbo.split('/')[0])
+                        cores = int(entry.get('Cores (threads)', '0').split()[0])
+                        row.append(f"{all_core * cores:.1f}")
+                except (ValueError, IndexError):
+                    row.append('-')
+            else:
+                value = entry.get(field, '')
+                row.append(value if value else '-')
         print('|', ' | '.join(row), '|', sep='')
 
 def main():
@@ -328,7 +363,7 @@ def main():
         print(f"\nMatching Entries ({len(filtered_entries)}):")
         
         if args.markdown_table:
-            print_markdown_table(filtered_entries, display_fields)
+            print_markdown_table(filtered_entries, display_fields, args.sort)
         else:
             for entry in filtered_entries:
                 print("\nCPU Entry:")
