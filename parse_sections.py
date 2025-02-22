@@ -38,6 +38,21 @@ def clean_header(header: str) -> Optional[str]:
         
     return header
 
+def get_l2_per_core(platform: str, subtype: str) -> float:
+    """Get L2 cache size per core in MB based on platform/subtype."""
+    mappings = {
+        ('lake-e', 'skylake_e'): 1.0,    # 1 MB per core
+        ('lake-e', 'cascadelake_e'): 1.0,
+        ('lake', 'skylake'): 1.0,
+        ('lake', 'cascadelake'): 1.0,
+        ('lake', 'cooperlake'): 1.0,
+        ('lake-sp', 'icelake'): 1.25,    # 1.25 MB per core
+        ('lake-d', 'icelake'): 1.25,
+        ('lake-sp', 'sapphirerapids'): 2.0,  # 2 MB per core
+        ('lake-sp', 'emeraldrapids'): 2.0,
+    }
+    return mappings.get((platform, subtype), 1.0)  # Default to 1 MB if unknown
+
 def process_cpulist_fields(platform: str, subtype: str, fields: Dict[str, str]) -> Dict[str, str]:
     """Process cpulist fields according to template rules."""
     result = {}
@@ -51,7 +66,8 @@ def process_cpulist_fields(platform: str, subtype: str, fields: Dict[str, str]) 
         # L2 cache calculation
         if 'cores' in fields and 'l2' not in fields:
             cores = int(fields['cores'])
-            result['l2'] = f"{cores} × 1 MB"
+            l2_size = get_l2_per_core(platform, subtype)
+            result['l2'] = f"{cores} × {l2_size} MB"
         
         # Socket defaults
         if 'sock' in fields:
@@ -124,7 +140,7 @@ def parse_cpulist(cpulist: str) -> Dict[str, str]:
     # Process fields according to template rules
     return process_cpulist_fields(platform, subtype, fields)
 
-def map_fields_to_headers(fields: Dict[str, str], headers: List[str]) -> Dict[str, str]:
+def map_fields_to_headers(fields: Dict[str, str], headers: List[str], platform: str, subtype: str) -> Dict[str, str]:
     """Map processed fields to table headers."""
     result = {header: '' for header in headers}
     
@@ -156,6 +172,16 @@ def map_fields_to_headers(fields: Dict[str, str], headers: List[str]) -> Dict[st
             elif field == 'l3' and not value.endswith('MB'):
                 value = f"{value} MB"
             result[header] = value
+    
+    # Calculate total cache
+    try:
+        cores = int(fields.get('cores', '0'))
+        l2_size = get_l2_per_core(platform, subtype)
+        l2_total = cores * l2_size
+        l3_value = float(fields.get('l3', '0'))
+        result['Total Cache'] = f"{l2_total + l3_value:.2f} MB"
+    except (ValueError, TypeError):
+        result['Total Cache'] = '-'
     
     return result
 
@@ -191,9 +217,16 @@ def parse_sections(filename: str) -> Dict[str, Dict[str, List[Dict[str, str]]]]:
             
             for cpu_match in cpulist_matches:
                 cpulist = cpu_match.group(0)
-                fields = parse_cpulist(cpulist)
-                mapped_fields = map_fields_to_headers(fields, headers)
-                cpu_entries.append(mapped_fields)
+                # Extract platform and subtype
+                match = re.match(r'\{\{cpulist\|(.*?)\}\}', cpulist, re.DOTALL)
+                if match:
+                    content = match.group(1)
+                    parts = re.split(r'(?<!\\)\|', content)
+                    platform = parts[0].strip()
+                    subtype = parts[1].strip() if len(parts) > 1 else ''
+                    fields = parse_cpulist(cpulist)
+                    mapped_fields = map_fields_to_headers(fields, headers, platform, subtype)
+                    cpu_entries.append(mapped_fields)
             
             sections[section_name] = {
                 'headers': headers,
@@ -358,6 +391,7 @@ def main():
         'Turbo Boost all-core/2.0)',
         'L2 cache',
         'L3 cache',
+        'Total Cache',
         'TDP'
     ]
     
