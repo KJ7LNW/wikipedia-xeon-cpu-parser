@@ -59,14 +59,7 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
     # Base frequency - handle nested structure
     base_freq = None
     if "base clock" in row:
-        if isinstance(row["base clock"], dict):
-            # Get first non-empty value from nested dict
-            for v in row["base clock"].values():
-                if v and v != "-":
-                    base_freq = v
-                    break
-        else:
-            base_freq = row["base clock"]
+        base_freq = row["base clock"]
     elif "frequency" in row:
         if isinstance(row["frequency"], dict):
             for v in row["frequency"].values():
@@ -75,19 +68,23 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
                     break
         else:
             base_freq = row["frequency"]
-    elif "Clock rate (GHz)" in row and isinstance(row["Clock rate (GHz)"], dict):
-        if "Base" in row["Clock rate (GHz)"]:
-            base = row["Clock rate (GHz)"]["Base"]
-            if isinstance(base, dict):
-                for v in base.values():
-                    if v and v != "-":
-                        base_freq = v + " GHz"  # Add GHz since it's not in the value
-                        break
-            else:
-                base_freq = base + " GHz"
+    elif "clock rate (ghz)" in row:
+        if isinstance(row["clock rate (ghz)"], dict):
+            if "base" in row["clock rate (ghz)"]:
+                base = row["clock rate (ghz)"]["base"]
+                if isinstance(base, dict):
+                    for v in base.values():
+                       if v and v != "-":
+                            base_freq = v + " GHz"  # Add GHz since it's not in the value
+                            break
+                else:
+                    base_freq = base + " GHz"
     
-    if base_freq:
+    if base_freq and base_freq != "-":
         try:
+            # Handle case where GHz is not included
+            if not base_freq.lower().endswith('ghz'):
+                base_freq += " GHz"
             freq = float(base_freq.split()[0])
             cpu_fields["frequency_base_ghz"] = freq
         except (ValueError, IndexError, AttributeError):

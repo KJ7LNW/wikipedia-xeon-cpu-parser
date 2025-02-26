@@ -27,7 +27,13 @@ def clean_text(text: str) -> str:
     if not text:
         return ""
     
-    # Remove table markup attributes first
+    # Handle line breaks and special spaces first
+    text = re.sub(r'<br\s*/?>', ' ', text)  # Convert <br/> to space
+    text = re.sub(r'{{Br}}', ' ', text)  # Convert <br/> to space
+    text = text.replace('\xa0', ' ')  # Replace non-breaking spaces
+    text = text.replace('&nbsp;', ' ')  # Replace HTML non-breaking spaces
+    
+    # Remove table markup attributes
     text = re.sub(r'^[!\|]|\|$', '', text)  # Remove leading ! or | and trailing |
     text = re.sub(r'rowspan="[^"]+"', '', text)  # Remove rowspan
     text = re.sub(r'colspan="[^"]+"', '', text)  # Remove colspan
@@ -39,11 +45,6 @@ def clean_text(text: str) -> str:
     text = re.sub(r'\[https://.*?\'\'(.*?)\'\'\]', r'\1', text)  # [https://...''text''] -> text
     text = re.sub(r'\[https?://[^\s\]]+\s+([^\]]+)\]', r'\1', text)  # [http://... text] -> text
     text = text.replace("''", '')  # Remove remaining '' quotes
-    
-    # Handle line breaks and special spaces
-    text = re.sub(r'<br\s*/?>', ' ', text)  # Convert <br/> to space
-    text = text.replace('\xa0', ' ')  # Replace non-breaking spaces
-    text = text.replace('&nbsp;', ' ')  # Replace HTML non-breaking spaces
     
     # Clean up remaining markup and whitespace
     text = re.sub(r'\s*\|\s*', ' ', text)  # Convert remaining pipes to spaces
