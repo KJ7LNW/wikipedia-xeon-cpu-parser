@@ -36,20 +36,24 @@ def main():
     ]
     
     for section_name, section_data in sections.items():
-        print(f"\n=== {section_name} ===")
         headers = section_data['headers']
         entries = section_data['entries']
         
         # Apply filters
         filtered_entries = filter_entries(entries, args)
         
+        # Skip sections with no matches
+        if not filtered_entries:
+            continue
+            
         # Sort entries
         filtered_entries = sort_entries(filtered_entries, args.sort)
         
         # Get display fields
         display_fields = headers if args.show_all else default_fields
         
-        # Print matching entries
+        # Print section header and entries
+        print(f"\n=== {section_name} ===")
         print(f"\nMatching Entries ({len(filtered_entries)}):")
         
         if args.markdown_table:
