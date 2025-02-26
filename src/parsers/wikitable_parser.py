@@ -33,10 +33,12 @@ def clean_text(text: str) -> str:
     text = re.sub(r'colspan="[^"]+"', '', text)  # Remove colspan
     text = re.sub(r'style="[^"]+"', '', text)  # Remove style
     
-    # Extract text from wiki links
+    # Extract text from wiki links and remove quotes
     text = re.sub(r'\[\[([^]|]+\|)?([^]]+)\]\]', r'\2', text)  # [[link|text]] -> text
     text = re.sub(r'\{\{([^}|]+\|)?([^}]+)\}\}', r'\2', text)  # {{template|text}} -> text
-    text = re.sub(r'\[https?://[^ ]+ ([^\]]+)\]', r'\1', text)  # [http://... text] -> text
+    text = re.sub(r'\[https://.*?\'\'(.*?)\'\'\]', r'\1', text)  # [https://...''text''] -> text
+    text = re.sub(r'\[https?://[^\s\]]+\s+([^\]]+)\]', r'\1', text)  # [http://... text] -> text
+    text = text.replace("''", '')  # Remove remaining '' quotes
     
     # Handle line breaks and special spaces
     text = re.sub(r'<br\s*/?>', ' ', text)  # Convert <br/> to space
@@ -77,17 +79,24 @@ def parse_table(table: wtp.Table) -> TableStructure:
         for row_idx in range(header_rows):
             if col_idx >= len(cells[row_idx]):
                 continue
-            text = clean_text(cells[row_idx][col_idx].string)
+            cell = cells[row_idx][col_idx]
+            # Skip headers with colspan equal to or greater than table width
+            if 'colspan="' in cell.string:
+                colspan = int(re.search(r'colspan="(\d+)"', cell.string).group(1))
+                if colspan >= len(cells[0]):
+                    continue
+            
+            text = clean_text(cell.string)
             if text and text != "-":
                 # Don't add duplicate headers (from rowspan)
                 if not path or text != path[-1]:
                     path.append(text)
         if path:
             header_paths[col_idx] = path
-            # Add to header structure with cleaned names
-            main_header = clean_text(path[0])
+            # Add to header structure with cleaned and lowercased names
+            main_header = clean_text(path[0]).lower()
             if len(path) > 1:
-                table_struct.add_header(main_header, "compound", [clean_text(h) for h in path[1:]])
+                table_struct.add_header(main_header, "compound", [clean_text(h).lower() for h in path[1:]])
             else:
                 table_struct.add_header(main_header)
     
@@ -95,6 +104,17 @@ def parse_table(table: wtp.Table) -> TableStructure:
     for row in cells[header_rows:]:
         # Skip section header rows (typically have colspan spanning whole table)
         if len(row) == 1:
+            continue
+            
+        # Skip rows with colspan equal to or greater than table width
+        has_full_colspan = False
+        for cell in row:
+            if 'colspan="' in cell.string:
+                colspan = int(re.search(r'colspan="(\d+)"', cell.string).group(1))
+                if colspan >= len(cells[0]):
+                    has_full_colspan = True
+                    break
+        if has_full_colspan:
             continue
             
         row_data = {}
@@ -110,8 +130,8 @@ def parse_table(table: wtp.Table) -> TableStructure:
             if content.startswith('!'):
                 continue
                 
-            # Navigate the header path to build nested structure with cleaned names
-            path = [clean_text(h) for h in header_paths[col_idx]]
+            # Navigate the header path to build nested structure with cleaned and lowercased names
+            path = [clean_text(h).lower() for h in header_paths[col_idx]]
             current = row_data
             for i, header in enumerate(path[:-1]):
                 if header not in current:

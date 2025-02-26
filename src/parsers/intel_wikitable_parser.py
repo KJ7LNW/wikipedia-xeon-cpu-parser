@@ -10,24 +10,24 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
     
     # Model number/Model - handle nested structure
     model = None
-    if "Model number" in row:
-        if isinstance(row["Model number"], dict):
+    if "model number" in row:
+        if isinstance(row["model number"], dict):
             # Get first non-empty value from nested dict
-            for v in row["Model number"].values():
+            for v in row["model number"].values():
                 if v and v != "-" and not v.startswith("!"):
                     model = v
                     break
         else:
-            model = row["Model number"]
-    elif "Model" in row:
-        if isinstance(row["Model"], dict):
+            model = row["model number"]
+    elif "model" in row:
+        if isinstance(row["model"], dict):
             # Get first non-empty value from nested dict
-            for v in row["Model"].values():
+            for v in row["model"].values():
                 if v and v != "-" and not v.startswith("!"):
                     model = v
                     break
         else:
-            model = row["Model"]
+            model = row["model"]
     
     if model:
         cpu_fields["model_number"] = model
@@ -37,15 +37,15 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
     
     # Cores/Threads - handle nested structure
     cores_threads = None
-    if "Cores (threads)" in row:
-        if isinstance(row["Cores (threads)"], dict):
+    if "cores (threads)" in row:
+        if isinstance(row["cores (threads)"], dict):
             # Get first non-empty value from nested dict
-            for v in row["Cores (threads)"].values():
+            for v in row["cores (threads)"].values():
                 if v and v != "-":
                     cores_threads = v
                     break
         else:
-            cores_threads = row["Cores (threads)"]
+            cores_threads = row["cores (threads)"]
     
     if cores_threads:
         try:
@@ -58,23 +58,23 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
     
     # Base frequency - handle nested structure
     base_freq = None
-    if "Base clock" in row:
-        if isinstance(row["Base clock"], dict):
+    if "base clock" in row:
+        if isinstance(row["base clock"], dict):
             # Get first non-empty value from nested dict
-            for v in row["Base clock"].values():
+            for v in row["base clock"].values():
                 if v and v != "-":
                     base_freq = v
                     break
         else:
-            base_freq = row["Base clock"]
-    elif "Frequency" in row:
-        if isinstance(row["Frequency"], dict):
-            for v in row["Frequency"].values():
+            base_freq = row["base clock"]
+    elif "frequency" in row:
+        if isinstance(row["frequency"], dict):
+            for v in row["frequency"].values():
                 if v and v != "-":
                     base_freq = v
                     break
         else:
-            base_freq = row["Frequency"]
+            base_freq = row["frequency"]
     elif "Clock rate (GHz)" in row and isinstance(row["Clock rate (GHz)"], dict):
         if "Base" in row["Clock rate (GHz)"]:
             base = row["Clock rate (GHz)"]["Base"]
@@ -104,16 +104,26 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
         return None
 
     try:
-        if "Turbo Boost" in row:
-            if isinstance(row["Turbo Boost"], dict):
-                turbo = row["Turbo Boost"]
+        # Handle new turbo boost columns
+        if "all core turbo boost" in row:
+            freq = extract_freq(row["all core turbo boost"])
+            if freq:
+                cpu_fields["frequency_turbo_all_ghz"] = freq
+        if "max turbo boost" in row:
+            freq = extract_freq(row["max turbo boost"])
+            if freq:
+                cpu_fields["frequency_turbo_single_ghz"] = freq
+        # Handle legacy Turbo Boost format
+        elif "turbo boost" in row:
+            if isinstance(row["turbo boost"], dict):
+                turbo = row["turbo boost"]
                 # Handle nested All core/Single core format
-                if "All core" in turbo:
-                    freq = extract_freq(turbo["All core"])
+                if "all core" in turbo:
+                    freq = extract_freq(turbo["all core"])
                     if freq:
                         cpu_fields["frequency_turbo_all_ghz"] = freq
-                if "Single core" in turbo:
-                    freq = extract_freq(turbo["Single core"])
+                if "single core" in turbo:
+                    freq = extract_freq(turbo["single core"])
                     if freq:
                         cpu_fields["frequency_turbo_single_ghz"] = freq
                 # Handle nested 2.0/3.0 format
@@ -125,9 +135,9 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
                     freq = extract_freq(turbo["3.0"])
                     if freq:
                         cpu_fields["frequency_turbo_single_ghz"] = freq
-        elif "Clock rate (GHz)" in row and isinstance(row["Clock rate (GHz)"], dict):
-            if "Turbo Boost" in row["Clock rate (GHz)"]:
-                turbo = row["Clock rate (GHz)"]["Turbo Boost"]
+        elif "clock rate (ghz)" in row and isinstance(row["clock rate (ghz)"], dict):
+            if "turbo boost" in row["clock rate (ghz)"]:
+                turbo = row["clock rate (ghz)"]["turbo boost"]
                 if "2.0" in turbo:
                     freq = extract_freq(turbo["2.0"])
                     if freq:
@@ -140,11 +150,11 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
         pass
     
     # L2 Cache
-    if "L2 cache" in row:
+    if "l2 cache" in row:
         try:
-            if row["L2 cache"] != "-":
+            if row["l2 cache"] != "-":
                 # Handle format like "56 × 1.0 MB"
-                parts = row["L2 cache"].split('×')
+                parts = row["l2 cache"].split('×')
                 if len(parts) == 2:
                     count = int(parts[0].strip())
                     size = float(parts[1].split()[0].strip())
@@ -154,22 +164,22 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
     
     # L3 Cache - handle nested structure
     cache_size = None
-    if "L3 cache" in row:
-        if isinstance(row["L3 cache"], dict):
-            for v in row["L3 cache"].values():
+    if "l3 cache" in row:
+        if isinstance(row["l3 cache"], dict):
+            for v in row["l3 cache"].values():
                 if v and v != "-":
                     cache_size = v
                     break
         else:
-            cache_size = row["L3 cache"]
-    elif "Smart cache" in row:
-        if isinstance(row["Smart cache"], dict):
-            for v in row["Smart cache"].values():
+            cache_size = row["l3 cache"]
+    elif "smart cache" in row:
+        if isinstance(row["smart cache"], dict):
+            for v in row["smart cache"].values():
                 if v and v != "-":
                     cache_size = v
                     break
         else:
-            cache_size = row["Smart cache"]
+            cache_size = row["smart cache"]
     
     if cache_size:
         try:
@@ -179,45 +189,49 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
             pass
     
     # TDP - handle both formats
-    if "TDP" in row:
+    if "tdp" in row:
         try:
-            if isinstance(row["TDP"], dict):
+            if isinstance(row["tdp"], dict):
                 # Handle base and turbo TDP
-                if "Base" in row["TDP"] and row["TDP"]["Base"] != "-":
-                    cpu_fields["tdp_w"] = int(row["TDP"]["Base"].split()[0])
-                if "Turbo" in row["TDP"] and row["TDP"]["Turbo"] != "-":
-                    cpu_fields["tdp_boost_w"] = int(row["TDP"]["Turbo"].split()[0])
-            elif row["TDP"] != "-":
+                if "base" in row["tdp"] and row["tdp"]["base"] != "-":
+                    cpu_fields["tdp_w"] = int(row["tdp"]["base"].split()[0])
+                if "turbo" in row["tdp"] and row["tdp"]["turbo"] != "-":
+                    cpu_fields["tdp_boost_w"] = int(row["tdp"]["turbo"].split()[0])
+            elif row["tdp"] != "-":
                 # Handle "base/boost W" format
-                if "/" in row["TDP"]:
-                    base, boost = row["TDP"].split("/")
+                if "/" in row["tdp"]:
+                    base, boost = row["tdp"].split("/")
                     cpu_fields["tdp_w"] = int(base.strip())
                     cpu_fields["tdp_boost_w"] = int(boost.split()[0].strip())
                 else:
-                    cpu_fields["tdp_w"] = int(row["TDP"].split()[0])
+                    # Handle simple format like "385 W"
+                    tdp_str = row["tdp"]
+                    if tdp_str.endswith(" W"):
+                        tdp_str = tdp_str[:-2]  # Remove " W"
+                    cpu_fields["tdp_w"] = int(tdp_str)
         except (ValueError, IndexError, AttributeError):
             pass
     
     # Memory - handle nested structure
-    if "Registered DDR5 w. ECC support" in row:
-        if isinstance(row["Registered DDR5 w. ECC support"], dict):
-            for v in row["Registered DDR5 w. ECC support"].values():
+    if "registered ddr5 w. ecc support" in row:
+        if isinstance(row["registered ddr5 w. ecc support"], dict):
+            for v in row["registered ddr5 w. ecc support"].values():
                 if v and v != "-":
                     cpu_fields["memory_type"] = v
                     break
         else:
-            cpu_fields["memory_type"] = row["Registered DDR5 w. ECC support"]
+            cpu_fields["memory_type"] = row["registered ddr5 w. ecc support"]
     
     # Price - handle nested structure
-    if "Release MSRP (USD)" in row:
+    if "release msrp (usd)" in row:
         price_str = None
-        if isinstance(row["Release MSRP (USD)"], dict):
-            for v in row["Release MSRP (USD)"].values():
+        if isinstance(row["release msrp (usd)"], dict):
+            for v in row["release msrp (usd)"].values():
                 if v and v != "-":
                     price_str = v
                     break
         else:
-            price_str = row["Release MSRP (USD)"]
+            price_str = row["release msrp (usd)"]
         
         if price_str:
             try:
@@ -227,23 +241,23 @@ def parse_row_to_cpu(row: Dict[str, Any]) -> IntelXeonScalable:
                 pass
     
     # Intel-specific fields - handle nested structure
-    if "Maximum scalability" in row:
-        if isinstance(row["Maximum scalability"], dict):
-            for v in row["Maximum scalability"].values():
+    if "maximum scalability" in row:
+        if isinstance(row["maximum scalability"], dict):
+            for v in row["maximum scalability"].values():
                 if v and v != "-":
                     cpu_fields["intel_max_sockets"] = v
                     break
         else:
-            cpu_fields["intel_max_sockets"] = row["Maximum scalability"]
+            cpu_fields["intel_max_sockets"] = row["maximum scalability"]
     
-    if "UPI links" in row:
-        if isinstance(row["UPI links"], dict):
-            for v in row["UPI links"].values():
+    if "upi links" in row:
+        if isinstance(row["upi links"], dict):
+            for v in row["upi links"].values():
                 if v and v != "-":
                     cpu_fields["intel_upi_links"] = v
                     break
         else:
-            cpu_fields["intel_upi_links"] = row["UPI links"]
+            cpu_fields["intel_upi_links"] = row["upi links"]
     
     return IntelXeonScalable(**cpu_fields)
 
