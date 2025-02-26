@@ -54,7 +54,7 @@ def main():
         display_fields = headers if args.show_all else default_fields
         
         # Print section header and entries
-        print(f"\n=== {section_name} ===")
+        print(f"\n## {section_name}")
         print(f"\nMatching Entries ({len(filtered_entries)}):")
         
         if args.markdown_table:
