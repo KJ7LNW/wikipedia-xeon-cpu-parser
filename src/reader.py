@@ -11,8 +11,13 @@ def is_cpulist_format(content: str) -> bool:
     """Detect if content uses cpulist template format."""
     return '{{cpulist' in content.lower()
 
-def parse_sections(filename: str) -> Dict[str, Dict[str, List[IntelXeonScalable]]]:
-    """Parse sections and their content from the file."""
+def parse_sections(filename: str, debug: bool = False) -> Dict[str, Dict[str, List[IntelXeonScalable]]]:
+    """Parse sections and their content from the file.
+    
+    Args:
+        filename: Path to file containing wiki markup
+        debug: If True, print detailed parsing information
+    """
     sections = {}
     
     with open(filename, 'r') as f:
@@ -49,7 +54,7 @@ def parse_sections(filename: str) -> Dict[str, Dict[str, List[IntelXeonScalable]
         if is_cpulist_format(section_content):
             cpu_entries = parse_cpulist(section_content)
         else:
-            cpu_entries = parse_wikitable(section_content)
+            cpu_entries = parse_wikitable(section_content, debug)
             
             # Update headers from table structure if using wikitable format
             if cpu_entries and not headers:

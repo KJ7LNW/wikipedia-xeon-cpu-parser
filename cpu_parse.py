@@ -16,12 +16,13 @@ def parse_args():
     parser.add_argument('-t', '--markdown-table', action='store_true', help='Output as markdown table')
     parser.add_argument('-i', '--include', action='append', help='Always include entries matching substring (can be specified multiple times)')
     parser.add_argument('--show-all', action='store_true', help='Show all fields (default: show only key fields)')
+    parser.add_argument('--debug', action='store_true', help='Print detailed parsing information')
     parser.add_argument('datafile', help='Input data file containing Wikipedia markup')
     return parser.parse_args()
 
 def main():
     args = parse_args()
-    sections = parse_sections(args.datafile)
+    sections = parse_sections(args.datafile, args.debug)
     
     # Define default fields to show
     default_fields = [

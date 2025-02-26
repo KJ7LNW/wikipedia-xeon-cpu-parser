@@ -1,15 +1,16 @@
 """Generic parser for MediaWiki tables."""
 
 import re
+import json
 import wikitextparser as wtp
-from typing import Dict, List, Optional, Any, Tuple
+from typing import Dict, List, Any
 
 class TableStructure:
     """Represents a parsed MediaWiki table structure."""
     def __init__(self):
-        self.headers = {}  # Header structure with types and subheaders
-        self.rows = []     # List of row dictionaries
-    
+        self.headers: Dict[str, Dict[str, Any]] = {}  # Header structure with types and subheaders
+        self.rows: List[Dict[str, Any]] = []     # List of row dictionaries
+
     def add_header(self, name: str, header_type: str = "simple", subheaders: List[str] = None):
         """Add a header definition."""
         self.headers[name] = {
@@ -21,143 +22,110 @@ class TableStructure:
         """Add a row of data."""
         self.rows.append(row_data)
 
-def parse_cell_attributes(cell: str) -> Tuple[str, int, int]:
-    """Extract cell content and rowspan/colspan attributes."""
-    content = cell.strip()
-    rowspan = 1
-    colspan = 1
-    
-    # Extract attributes if present
-    if 'rowspan=' in cell:
-        try:
-            rowspan = int(cell.split('rowspan=')[1].split('"')[1].strip())
-        except (IndexError, ValueError):
-            pass
-            
-    if 'colspan=' in cell:
-        try:
-            colspan = int(cell.split('colspan=')[1].split('"')[1].strip())
-        except (IndexError, ValueError):
-            pass
-    
-    # Extract content after last |
-    if '|' in cell:
-        content = cell.split('|')[-1].strip()
-    
-    # Clean up <br /> tags
-    content = content.replace('<br />', ' ').replace('<br/>', ' ')
-    
-    return content, rowspan, colspan
-
-def split_table_cells(line: str, separator: str = '|') -> List[str]:
-    """Split a table line into cells."""
-    cells = []
-    if not line:
-        return cells
-        
-    # Remove leading separator
-    if line.startswith(separator):
-        line = line[len(separator):]
-    
-    # Handle both | and || separators
-    parts = []
-    current = ""
-    in_quotes = False
-    i = 0
-    
-    while i < len(line):
-        if line[i] == '"':
-            in_quotes = not in_quotes
-        elif not in_quotes and i < len(line) - 1 and line[i:i+2] == separator * 2:
-            parts.append(current)
-            current = ""
-            i += 1
-        else:
-            current += line[i]
-        i += 1
-    
-    parts.append(current)
-    return [p.strip() for p in parts if p.strip()]
-
 def clean_text(text: str) -> str:
     """Clean up wiki markup from text."""
-    text = text.replace('<br />', ' ').replace('<br/>', ' ')
+    if not text:
+        return ""
+    
+    # Remove table markup attributes first
+    text = re.sub(r'^[!\|]|\|$', '', text)  # Remove leading ! or | and trailing |
+    text = re.sub(r'rowspan="[^"]+"', '', text)  # Remove rowspan
+    text = re.sub(r'colspan="[^"]+"', '', text)  # Remove colspan
+    text = re.sub(r'style="[^"]+"', '', text)  # Remove style
+    
+    # Extract text from wiki links
     text = re.sub(r'\[\[([^]|]+\|)?([^]]+)\]\]', r'\2', text)  # [[link|text]] -> text
     text = re.sub(r'\{\{([^}|]+\|)?([^}]+)\}\}', r'\2', text)  # {{template|text}} -> text
     text = re.sub(r'\[https?://[^ ]+ ([^\]]+)\]', r'\1', text)  # [http://... text] -> text
-    return text.strip()
+    
+    # Handle line breaks and special spaces
+    text = re.sub(r'<br\s*/?>', ' ', text)  # Convert <br/> to space
+    text = text.replace('\xa0', ' ')  # Replace non-breaking spaces
+    text = text.replace('&nbsp;', ' ')  # Replace HTML non-breaking spaces
+    
+    # Clean up remaining markup and whitespace
+    text = re.sub(r'\s*\|\s*', ' ', text)  # Convert remaining pipes to spaces
+    text = text.strip()
+    text = re.sub(r'\s+', ' ', text)  # Collapse multiple spaces
+    
+    return text
 
 def parse_table(table: wtp.Table) -> TableStructure:
     """Parse a MediaWiki table into a structured format."""
     table_struct = TableStructure()
-    data = table.data()
     
-    if len(data) < 3:  # Need headers, subheaders, and at least one data row
+    # Get table data with spans handled by wikitextparser
+    cells = table.cells(span=True)
+    if len(cells) < 2:  # Need at least headers and one data row
         return table_struct
-        
-    # First row contains main headers
-    headers = [clean_text(h) for h in data[0]]
-    # Second row contains subheaders or repeats headers
-    subheaders = [clean_text(h) for h in data[1]]
     
-    # Process headers
-    header_map = {}  # Map column index to header name
-    for i, header in enumerate(headers):
-        if i >= len(subheaders):
-            continue
-            
-        # Handle special case for Turbo Boost columns
-        if header == "Turbo Boost" and i + 1 < len(headers) and headers[i + 1] == "Turbo Boost":
-            table_struct.add_header(header, "compound", ["All core", "Single core"])
-            header_map[i] = (header, "All core")
-            header_map[i + 1] = (header, "Single core")
-            continue
-        elif i > 0 and headers[i - 1] == "Turbo Boost" and header == "Turbo Boost":
-            continue
-            
-        # Handle other headers
-        if header == subheaders[i] or not subheaders[i]:
-            table_struct.add_header(header)
-            header_map[i] = (header, None)
-        else:
-            table_struct.add_header(header, "compound", [subheaders[i]])
-            header_map[i] = (header, subheaders[i])
-    
-    # Skip section headers and separator rows
-    start_row = 2
-    while start_row < len(data):
-        row = data[start_row]
-        # Skip if all cells are identical or if row is a separator (all cells are '-')
-        if len(set(row)) == 1 or all(all(c == '-' for c in cell.strip()) for cell in row):
-            start_row += 1
+    # Count header rows by looking for '!' markers
+    header_rows = 0
+    for row in cells:
+        if any('!' in cell.string for cell in row):
+            header_rows += 1
         else:
             break
     
+    if header_rows == 0:
+        return table_struct
+    
+    # Build header paths and mapping
+    header_paths = {}  # Maps column index to header path
+    for col_idx in range(len(cells[0])):
+        path = []
+        for row_idx in range(header_rows):
+            if col_idx >= len(cells[row_idx]):
+                continue
+            text = clean_text(cells[row_idx][col_idx].string)
+            if text and text != "-":
+                # Don't add duplicate headers (from rowspan)
+                if not path or text != path[-1]:
+                    path.append(text)
+        if path:
+            header_paths[col_idx] = path
+            # Add to header structure with cleaned names
+            main_header = clean_text(path[0])
+            if len(path) > 1:
+                table_struct.add_header(main_header, "compound", [clean_text(h) for h in path[1:]])
+            else:
+                table_struct.add_header(main_header)
+    
     # Process data rows
-    for row in data[start_row:]:
+    for row in cells[header_rows:]:
+        # Skip section header rows (typically have colspan spanning whole table)
+        if len(row) == 1:
+            continue
+            
         row_data = {}
-        for i, cell in enumerate(row):
-            if i not in header_map:
+        for col_idx, cell in enumerate(row):
+            if col_idx not in header_paths:
+                continue
+            
+            content = clean_text(cell.string)
+            if not content or content == "-":
+                continue
+            
+            # Skip section headers that start with !
+            if content.startswith('!'):
                 continue
                 
-            header, subheader = header_map[i]
-            cell = clean_text(cell)
-            
-            if cell and not all(c == '-' for c in cell):  # Skip empty/separator cells
-                if subheader:
-                    if header not in row_data:
-                        row_data[header] = {}
-                    row_data[header][subheader] = cell
-                else:
-                    row_data[header] = cell
+            # Navigate the header path to build nested structure with cleaned names
+            path = [clean_text(h) for h in header_paths[col_idx]]
+            current = row_data
+            for i, header in enumerate(path[:-1]):
+                if header not in current:
+                    current[header] = {}
+                current = current[header]
+            current[path[-1]] = content
         
-        # Skip section headers and empty rows
-        if row_data and not all(v == row_data.get(next(iter(row_data))) for v in row_data.values()):
+        # Skip empty rows
+        if row_data:
             table_struct.add_row(row_data)
     
     return table_struct
 
-def parse_wikitable(text: str) -> List[TableStructure]:
+def parse_wikitable(text: str, debug: bool = False) -> List[TableStructure]:
     """Parse all tables in a MediaWiki text."""
     parsed = wtp.parse(text)
     tables = []
@@ -165,5 +133,11 @@ def parse_wikitable(text: str) -> List[TableStructure]:
     for table in parsed.tables:
         table_struct = parse_table(table)
         tables.append(table_struct)
+        if debug:
+            print("\n=== Table Structure ===")
+            print("Headers:")
+            print(json.dumps(table_struct.headers, indent=2))
+            print("\nRows:")
+            print(json.dumps(table_struct.rows, indent=2))
     
     return tables
