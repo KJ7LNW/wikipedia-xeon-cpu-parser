@@ -2,11 +2,11 @@
 
 import wikitextparser as wtp
 from typing import Dict, List
+from .parsers.utils import clean_header
+from .parsers.intel_cpulist_parser import parse
+from .processors.intel_xeon_scalable import IntelXeonScalable
 
-from .parsers.base import clean_header
-from .parsers.intel_cpulist_parser import parse_cpulist, map_fields_to_headers
-
-def parse_sections(filename: str) -> Dict[str, Dict[str, List[Dict[str, str]]]]:
+def parse_sections(filename: str) -> Dict[str, Dict[str, List[IntelXeonScalable]]]:
     """Parse sections and their content from the file."""
     sections = {}
     
@@ -39,24 +39,9 @@ def parse_sections(filename: str) -> Dict[str, Dict[str, List[Dict[str, str]]]]:
                     headers.append(clean_h)
                     seen_headers.add(clean_h)
         
-        # Find all CPU entries
-        cpu_entries = []
-        templates = section.templates
-        
-        for template in templates:
-            if template.name.strip() == 'cpulist':
-                    parts = template.string.strip('{}').split('|')
-                    if len(parts) >= 3:
-                        platform = parts[1].strip()
-                        subtype = parts[2].strip()
-                        
-                        # Parse cpulist template
-                        fields = parse_cpulist(template.string)
-                        
-                        # Map fields to headers
-                        if fields:
-                            mapped_fields = map_fields_to_headers(fields, headers, platform, subtype)
-                            cpu_entries.append(mapped_fields)
+        # Parse all CPU entries in the section
+        section_content = str(section)
+        cpu_entries = parse(section_content)
         
         sections[section_name] = {
             'headers': headers,

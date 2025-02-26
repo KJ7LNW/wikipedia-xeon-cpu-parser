@@ -1,8 +1,9 @@
 """Output formatting functionality."""
 
-from typing import Dict, List
+from typing import List
+from .processors.intel_xeon_scalable import IntelXeonScalable
 
-def print_markdown_table(entries: List[Dict[str, str]], fields: List[str], sort_field: str):
+def print_markdown_table(entries: List[IntelXeonScalable], fields: List[str], sort_field: str):
     """Print entries in markdown table format."""
     # Add GHz-cores/GHz-all-cores column if sorting by corehz/corehz-all
     display_fields = list(fields)
@@ -19,22 +20,11 @@ def print_markdown_table(entries: List[Dict[str, str]], fields: List[str], sort_
     for entry in entries:
         row = []
         for field in display_fields:
-            if field in ('GHz-cores', 'GHz-all-cores'):
-                try:
-                    cores = int(entry.get('Cores (threads)', '0').split()[0])
-                    if sort_field == 'corehz':
-                        freq = float(entry.get('Frequency', '0 GHz').split()[0])
-                        row.append(f"{freq * cores:.1f}")
-                    else:  # corehz-all
-                        turbo = entry.get('Turbo Boost all-core/2.0)', '')
-                        if turbo and '/' in turbo and not turbo.startswith('?'):
-                            all_core = float(turbo.split('/')[0])
-                            row.append(f"{all_core * cores:.1f}")
-                        else:
-                            row.append('-')
-                except (ValueError, IndexError):
-                    row.append('-')
+            if field == 'GHz-cores':
+                row.append(f"{entry.corehz:.1f}" if entry.corehz > 0 else '-')
+            elif field == 'GHz-all-cores':
+                row.append(f"{entry.corehz_all:.1f}" if entry.corehz_all > 0 else '-')
             else:
-                value = entry.get(field, '')
-                row.append(value if value else '-')
+                value = entry.get_display_value(field)
+                row.append(str(value) if value is not None else '-')
         print('|', ' | '.join(row), '|', sep='')

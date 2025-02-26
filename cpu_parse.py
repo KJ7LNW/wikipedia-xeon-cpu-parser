@@ -2,7 +2,7 @@
 
 import argparse
 from src.reader import parse_sections
-from src.processors.base import filter_entries, sort_entries
+from src.processors.filters.cpu_filters import filter_entries, sort_entries
 from src.io import print_markdown_table
 
 def parse_args():
@@ -58,8 +58,8 @@ def main():
             for entry in filtered_entries:
                 print("\nCPU Entry:")
                 for header in display_fields:
-                    value = entry.get(header, '')
-                    if value:
+                    value = entry.get_display_value(header)
+                    if value is not None:
                         print(f"{header}: {value}")
 
 if __name__ == '__main__':

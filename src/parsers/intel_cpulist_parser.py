@@ -2,6 +2,7 @@
 
 import wikitextparser as wtp
 from typing import Dict, List
+from ..processors.intel_xeon_scalable import IntelXeonScalable
 
 def get_l2_per_core(platform: str, subtype: str) -> float:
     """Get L2 cache size per core in MB based on platform/subtype."""
@@ -48,58 +49,107 @@ def process_cpulist_fields(platform: str, subtype: str, fields: Dict[str, str]) 
     
     return result
 
-def map_fields_to_headers(fields: Dict[str, str], headers: List[str], platform: str, subtype: str) -> Dict[str, str]:
-    """Map processed fields to table headers."""
-    result = {header: '' for header in headers}
+def process_fields_to_cpu(fields: Dict[str, str], platform: str, subtype: str) -> Dict[str, str]:
+    """Process fields into CPU class format."""
+    result = {}
     
-    # Header mappings with unit formatting
-    header_mappings = {
-        'model': ('Model number', lambda v: v),
-        'sspec1': ('sSpec number', lambda v: v),
-        'cores_threads': ('Cores (threads)', lambda v: v),
-        'freq': ('Frequency', lambda v: v),
-        'turbo': ('Turbo Boost all-core/2.0)', lambda v: v),
-        'l2': ('L2 cache', lambda v: v),
-        'l3': ('L3 cache', lambda v: f"{v} MB" if not v.endswith('MB') else v),
-        'tdp': ('TDP', lambda v: f"{v} W" if not v.endswith('W') else v),
-        'sock': ('Socket', lambda v: v),
-        'upi': ('I/O bus', lambda v: v),
-        'mem': ('Memory', lambda v: v),
-        'date': ('Release date', lambda v: v),
-        'parts': ('Part number(s)', lambda v: v),
-        'price': ('Release price (USD)', lambda v: v)
-    }
+    # Process core/thread info
+    if 'cores' in fields and 'threads' in fields:
+        result['cores_count'] = int(fields['cores'])
+        result['cores_threads'] = int(fields['threads'])
     
-    # Map fields to headers with unit formatting
-    for field, (header, format_func) in header_mappings.items():
-        if field in fields and header in result:
-            result[header] = format_func(fields[field])
+    # Process frequencies
+    if 'freq' in fields:
+        try:
+            result['frequency_base_ghz'] = float(fields['freq'].split()[0])
+        except (ValueError, IndexError):
+            pass
+            
+    if 'turbo' in fields:
+        try:
+            turbo = fields['turbo'].split('/')
+            if len(turbo) == 2:
+                all_core = None
+                single_core = None
+                
+                # Parse all-core turbo
+                if not turbo[0].startswith('?'):
+                    try:
+                        all_core = float(turbo[0])
+                    except (ValueError, IndexError):
+                        pass
+                
+                # Parse single-core turbo
+                try:
+                    single_core = float(turbo[1].split()[0])
+                except (ValueError, IndexError):
+                    pass
+                
+                # Store values separately
+                if all_core is not None:
+                    result['frequency_turbo_all_ghz'] = all_core
+                if single_core is not None:
+                    result['frequency_turbo_single_ghz'] = single_core
+        except (ValueError, IndexError):
+            pass
     
-    # Calculate total cache
-    try:
-        cores = int(fields.get('cores', '0'))
-        l2_size = get_l2_per_core(platform, subtype)
-        l2_total = cores * l2_size
-        l3_value = float(fields.get('l3', '0'))
-        result['Total Cache'] = f"{l2_total + l3_value:.2f} MB"
-    except (ValueError, TypeError):
-        result['Total Cache'] = '-'
+    # Process cache
+    if 'l3' in fields:
+        try:
+            l3 = fields['l3'].split()[0]
+            result['cache_l3_mb'] = float(l3)
+        except (ValueError, IndexError):
+            pass
+    
+    # Process memory
+    if 'mem' in fields:
+        result['memory_type'] = fields['mem']
+    
+    # Process TDP
+    if 'tdp' in fields:
+        try:
+            tdp = fields['tdp'].split()[0]
+            result['tdp_w'] = int(tdp)
+        except (ValueError, IndexError):
+            pass
+    
+    # Process model info
+    if 'model' in fields:
+        result['model_number'] = fields['model']
+    if 'date' in fields:
+        result['model_launch'] = fields['date']
+    if 'price' in fields:
+        try:
+            price = fields['price'].replace('$', '').replace(',', '')
+            result['model_price_usd'] = float(price)
+        except (ValueError, AttributeError):
+            pass
+    
+    # Process Intel-specific fields
+    if 'sspec1' in fields:
+        result['intel_spec'] = fields['sspec1']
+    if 'parts' in fields:
+        result['intel_part'] = fields['parts']
+    if 'sock' in fields:
+        result['intel_socket'] = fields['sock']
+    if 'upi' in fields:
+        result['intel_upi_links'] = fields['upi']
     
     return result
 
-def parse_cpulist(template: str) -> Dict[str, str]:
-    """Parse a cpulist template into processed fields."""
+def parse_cpulist(template: str) -> IntelXeonScalable:
+    """Parse a cpulist template into a CPU object."""
     parsed = wtp.parse(template)
     if not parsed.templates:
-        return {}
+        return IntelXeonScalable()
     
     template = parsed.templates[0]
     parts = template.string.strip('{}').split('|')
     if parts[0].strip() != 'cpulist':
-        return {}
+        return IntelXeonScalable()
     
     if len(parts) < 3:
-        return {}
+        return IntelXeonScalable()
     
     platform = parts[1].strip()
     subtype = parts[2].strip()
@@ -115,4 +165,22 @@ def parse_cpulist(template: str) -> Dict[str, str]:
                 fields[key] = value
     
     # Process fields according to template rules
-    return process_cpulist_fields(platform, subtype, fields)
+    processed = process_cpulist_fields(platform, subtype, fields)
+    
+    # Convert to CPU class format
+    cpu_fields = process_fields_to_cpu(processed, platform, subtype)
+    
+    # Create CPU object
+    return IntelXeonScalable(**cpu_fields)
+
+def parse(file_content: str) -> List[IntelXeonScalable]:
+    """Parse file content into a list of CPU objects."""
+    parsed = wtp.parse(file_content)
+    cpus = []
+    
+    for template in parsed.templates:
+        if template.name.strip() == 'cpulist':
+            cpu = parse_cpulist(str(template))
+            cpus.append(cpu)
+    
+    return cpus
