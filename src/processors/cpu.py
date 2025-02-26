@@ -19,7 +19,12 @@ class CPU:
         'L2 cache': lambda self: f"{self.cores_count} × 1.0 MB" if self.cores_count else None,
         'L3 cache': lambda self: f"{self.cache_l3_mb:g} MB" if self.cache_l3_mb else None,
         'Total Cache': lambda self: f"{(self.cache_l3_mb + self.cores_count):.2f} MB" if self.cache_l3_mb and self.cores_count else None,
-        'TDP': lambda self: f"{self.tdp_w} W" if self.tdp_w else None
+        'TDP': lambda self: (
+            f"{self.tdp_w}/{self.tdp_boost_w} W" 
+            if self.tdp_w is not None and self.tdp_boost_w is not None
+            else f"{self.tdp_w} W" if self.tdp_w is not None
+            else "-"
+        )
     }
     
     def __init__(self, **kwargs):
@@ -35,6 +40,7 @@ class CPU:
         self.memory_type = None
         self.memory_speed_mt_s = None
         self.tdp_w = None
+        self.tdp_boost_w = None
         self.model_launch = None
         self.model_price_usd = None
         
