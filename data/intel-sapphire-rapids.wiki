@@ -1,0 +1,1042 @@
+{{Short description|Intel microprocessor, released in 2023}}
+{{Use mdy dates|date=October 2019}}
+{{Infobox CPU
+| name           = Sapphire Rapids
+| image          = 
+| image_size     = 
+| alt            = 
+| caption        =
+<!----------------- General Info ----------------->
+| produced-start = {{Start date and age|2023|01|10}}
+| produced-end   = 
+| soldby         = [[Intel]]
+| designfirm     = Intel
+| manuf1         = Intel
+| cpuid          = 806F6
+| code           = 80713
+| clock          = Up to 4.8 GHz
+| qpi-slowest    = 16
+| dmi-slowest    = 16
+| l1cache        = 80 KB per core (32 KB instruction + 48 KB data)
+| l2cache        = 2 MB per core
+| l3cache        = Up to 112.5 MB (1.875 MB per core)
+| l4cache        = 64 GB [[High Bandwidth Memory|HBM2a]] (Xeon Max only)
+| llcache        = 
+<!------- Architecture and classification -------->
+| application   = Server<br/>Workstation<br/>Embedded
+| size-from     = [[7 nm process|Intel 7]] (previously known as 10ESF) <!-- Do not change the link to 10 nm. Intel 7 process is described on the 7 nm page. -->
+| size-to       = 
+| microarch     = [[Golden Cove]]
+| arch          = [[x86-64]]
+| instructions  = [[MMX (instruction set)|MMX]], [[Streaming SIMD Extensions|SSE]], [[SSE2]], [[SSE3]], [[SSSE3]], [[SSE4]], [[SSE4.1]], [[SSE4.2]], [[Advanced Vector Extensions|AVX]], [[Advanced Vector Extensions#Advanced Vector Extensions 2|AVX2]], [[FMA3]], [[AVX-512]], [[Advanced Vector Extensions#AVX-VNNI|AVX-VNNI]], [[Transactional Synchronization Extensions|TSX]], [[Advanced Matrix Extensions|AMX]], [[AES instruction set|AES-NI]], [[CLMUL instruction set|CLMUL]], [[RDRAND]], [[User Interrupt|UINTR]]
+| extensions    = [[Intel SHA extensions|SHA]], [[Trusted Execution Technology|TXT]], [[VT-x]], [[VT-d]], DSA, QAT, DLB, IAA
+<!----------- Physical specifications ------------>
+| transistors   = 
+| numcores      = 6-60 per socket
+| amountmemory  = Up to 4 TB per socket
+| memory1       = Up to octa-channel [[DDR5 SDRAM|DDR5]]-4800 with [[Error correction code|ECC]] support
+| gpu           = 
+| co-processor  = 
+| pack1         = [[Flip chip]] [[land grid array]] (FC-LGA)
+| sock1         = [[LGA 4677]]
+<!--------- Products, models, variants ----------->
+| core1         = 
+| pcode1        = SPR
+| model1        = Sapphire Rapids-SP
+| model2        = Sapphire Rapids-WS
+| model3        = Sapphire Rapids-HBM
+| brand1        = [[Xeon]] Bronze/Sliver/Gold/Platinum
+| brand2        = Xeon Max Series
+| brand3        = Xeon w3/w5/w7/w9
+| variant1      = 
+<!------------------  History  ------------------->
+| predecessor   = [[Ice Lake (microprocessor)#Ice Lake-SP (Xeon_Scalable)|Ice Lake]] <small>(workstations, 1S and 2S servers)</small><br/>[[Cooper Lake (microprocessor)|Cooper Lake]] <small>(4S and 8S servers)</small><br/>
+| successor     = [[Emerald Rapids]]
+| support status = Supported
+}}
+
+'''Sapphire Rapids''' is a [[List of Intel codenames|codename]] for [[Intel]]'s server (fourth generation [[Xeon]] Scalable) and workstation (Xeon W-2400/2500 and Xeon W-3400/3500) processors based on the [[Golden Cove]] microarchitecture and produced using [[7 nm process|Intel 7]].<ref>{{Cite web |last=Cutress |first=Ian |date=August 13, 2020 |title=Intel's 11th Gen Core Tiger Lake SoC Detailed: SuperFin, Willow Cove and Xe-LP |url=https://www.anandtech.com/show/15971/intels-11th-gen-core-tiger-lake-soc-detailed-superfin-willow-cove-and-xelp |website=AnandTech |language=en-US |access-date=August 20, 2020 |archive-date=May 18, 2021 |archive-url=https://web.archive.org/web/20210518152431/https://www.anandtech.com/show/15971/intels-11th-gen-core-tiger-lake-soc-detailed-superfin-willow-cove-and-xelp |url-status=live }}</ref><ref>{{Cite web |last=Mujtaba |first=Hassan |date=October 14, 2019 |title=Intel Sapphire Rapids & Granite Rapids Xeons Are LGA 4677 Compatible |url=https://wccftech.com/intel-xeon-sapphire-rapids-granite-rapids-cpus-lga-4677-compatible-ddr5-pcie-5/ |website=Wccftech |language=en-US |access-date=March 14, 2020 |archive-date=March 10, 2020 |archive-url=https://web.archive.org/web/20200310103245/https://wccftech.com/intel-xeon-sapphire-rapids-granite-rapids-cpus-lga-4677-compatible-ddr5-pcie-5/ |url-status=live }}</ref><ref>{{Cite web |last=Cutress |first=Ian |date=February 17, 2022 |title=Intel Discloses Multi-Generation Xeon Scalable Roadmap: New E-Core Only Xeons in 2024 |url=https://www.anandtech.com/show/17259/intel-discloses-multigeneration-xeon-scalable-roadmap-new-ecore-only-xeons-in-2024 |website=AnandTech |language=en-US |access-date=February 17, 2022 |archive-date=March 15, 2022 |archive-url=https://web.archive.org/web/20220315132342/https://www.anandtech.com/show/17259/intel-discloses-multigeneration-xeon-scalable-roadmap-new-ecore-only-xeons-in-2024 |url-status=live }}</ref><ref>{{cite web |last=Shilov |first=Anton |date=October 27, 2020 |title=Intel: Alder Lake Sampling, Sapphire Rapids Samples in Q4 |url=https://www.tomshardware.com/news/intel-alder-lake-sampling-sapphire-rapids |website=Tom's Hardware |language=en-US |access-date=November 10, 2022}}</ref> It features up to 60 cores and an array of accelerators, and it is the first generation of Intel server and workstation processors to use a [[chiplet]] design.
+
+Sapphire Rapids is part of the Eagle Stream server platform.<ref>{{Cite web |last=Mujtaba |first=Hassan |date=May 21, 2019 |title=Intel Xeon Roadmap Leak, 10nm Ice Lake, Sapphire Rapids CPU Detailed |url=https://wccftech.com/intel-xeon-roadmap-leak-10nm-ice-lake-sp-2020-sapphire-rapids-sp-2021/ |website=Wccftech |language=en-US |access-date=March 14, 2020}}</ref><ref>{{Cite web |last=Alcorn |first=Paul |date=June 29, 2021 |title=Intel's Sapphire Rapids Roadmap Slips: Enters Production in 2022 |url=https://www.tomshardware.com/news/intels-timeline-slips-10nm-sapphire-rapids-to-enter-production-in-2022 |website=Tom's Hardware |language=en-US |access-date=June 30, 2021 |archive-date=June 30, 2021 |archive-url=https://web.archive.org/web/20210630102024/https://www.tomshardware.com/news/intels-timeline-slips-10nm-sapphire-rapids-to-enter-production-in-2022 |url-status=live }}</ref> In addition, it powers [[Aurora (supercomputer)|Aurora]], an [[exascale computing|exascale]] [[supercomputer]] in the [[United States]], at [[Argonne National Laboratory]].<ref>{{cite web |last1=Russell |first1=John |date=November 17, 2019 |title=Intel Debuts New GPU – Ponte Vecchio – and Outlines Aspirations for oneAPI |url=https://www.hpcwire.com/2019/11/17/intel-debuts-new-gpu-ponte-vecchio-and-outlines-aspirations-for-oneapi/ |website=HPC Wire |language=en-US |access-date=November 18, 2019 |archive-date=March 4, 2020 |archive-url=https://web.archive.org/web/20200304120045/https://www.hpcwire.com/2019/11/17/intel-debuts-new-gpu-ponte-vecchio-and-outlines-aspirations-for-oneapi/ |url-status=live }}</ref>
+
+== History ==
+Sapphire Rapids has been a long-standing Intel project along [[Alder Lake]] in development for over five years and has been subjected to many delays.<ref name="Patel">{{cite web |last1=Patel |first1=Nilay |date=October 4, 2022 |title=Pat Gelsinger came back to turn Intel around — here's how it's going |url=https://www.theverge.com/2022/10/4/23385652/pat-gelsinger-intel-chips-act-ohio-manufacturing-chip-shortage |website=The Verge |language=en-US |access-date=November 10, 2022 |archive-date=November 10, 2022 |archive-url=https://web.archive.org/web/20221110114450/https://www.theverge.com/2022/10/4/23385652/pat-gelsinger-intel-chips-act-ohio-manufacturing-chip-shortage |url-status=live }}</ref> It was first announced by Intel at their Investor Meeting in May 2019 with the intention of Sapphire Rapids succeeding [[Ice Lake (microprocessor)|Ice Lake]] and [[Cooper Lake (microprocessor)|Cooper Lake]] in 2021.<ref>{{cite web |last1=Schor |first1=David |date=May 21, 2019 |title=Leaked Intel Server Roadmap Shows Sapphire Rapids With DDR5/PCIe 5.0 For 2021, Granite Rapids For 2022 |url=https://fuse.wikichip.org/news/2336/leaked-intel-server-roadmap-shows-sapphire-rapids-with-ddr5-pcie-5-0-for-2021-granite-rapids-for-2022/ |website=WikiChip Fuse |language=en-US |access-date=November 29, 2022}}</ref><ref>{{cite web |last1=Mujtaba |first1=Hassan |date=May 21, 2019 |title=Intel Xeon Roadmap Leaked Out, Unveils 10nm Ice Lake-SP With PCIe Gen 4 & Up To 26 Cores in 2020, Next-Gen Sapphire Rapids With PCIe Gen 5 & DDR5 in 2021 |url=https://wccftech.com/intel-xeon-roadmap-leak-10nm-ice-lake-sp-2020-sapphire-rapids-sp-2021/ |website=Wccftech |language=en-US |access-date=November 29, 2022}}</ref> Intel again announced details on Sapphire Rapids in their August 2021 Architecture Day presentation with no mention of a launch date.<ref>{{cite web |author=Intel Technology |date=August 19, 2021 |title=Sapphire Rapids – Architecture Day 2021 {{!}} Intel Technology |url=https://www.youtube.com/watch?v=3zyQNiJw82U&ab_channel=IntelTechnology |website=YouTube |language=en-US |access-date=November 29, 2022}}</ref>
+
+Intel CEO [[Pat Gelsinger]] tacitly blamed the previous Intel leadership as a reason for Sapphire Rapids' many delays.<ref name="Patel"/> One industry analyst firm claimed that Intel was having problems with yields from its Intel 7 node with yields of 50–60% on higher core-count silicon.<ref>{{cite web |last1=Wheatley |first1=Mike |date=November 1, 2022 |title=Intel's Sapphire Rapids server chips face yet more delays, with AMD set to benefit |url=https://siliconangle.com/2022/11/01/intels-sapphire-rapids-server-chips-face-yet-delays-amd-set-benefit/ |website=Silicon Angle |language=en-US |access-date=November 19, 2022 |archive-date=November 10, 2022 |archive-url=https://web.archive.org/web/20221110205555/https://siliconangle.com/2022/11/01/intels-sapphire-rapids-server-chips-face-yet-delays-amd-set-benefit/ |url-status=live }}</ref> Sapphire Rapids was originally scheduled for a launch in the first half of 2022.<ref>{{cite web |last1=Cutress |first1=Ian |date=June 29, 2021 |title=Update on Intel Sapphire Rapids in 2022: Q1 for Production, Q2 for Ramp, H1 Launch |url=https://www.anandtech.com/show/16796/update-on-intel-sapphire-rapids-in-2022-q1-for-production-q2-for-ramp-h1-launch |website=AnandTech |language=en-US |access-date=November 10, 2022}}</ref> It was later scheduled for release in Q4 2022 but was again delayed to early 2023.<ref>{{cite web |last1=Cunningham |first1=Andrew |date=November 2, 2022 |title=Intel's oft-delayed "Sapphire Rapids" Xeon CPUs are finally coming in early 2023 |url=https://arstechnica.com/information-technology/2022/11/intels-oft-delayed-sapphire-rapids-xeon-cpus-are-finally-coming-in-early-2023/ |website=Ars Technica |language=en-US |access-date=November 10, 2022 |archive-date=November 10, 2022 |archive-url=https://web.archive.org/web/20221110113315/https://arstechnica.com/information-technology/2022/11/intels-oft-delayed-sapphire-rapids-xeon-cpus-are-finally-coming-in-early-2023/ |url-status=live }}</ref> The specific announcement date of January 10, 2023 was not revealed by Intel until November 2022.<ref name="Shilov 2022">{{cite web |last1=Shilov |first1=Anton |date=November 2, 2022 |title=Intel's Sapphire Rapids Formal Launch Date Revealed |url=https://www.tomshardware.com/news/intel-sapphire-rapids-launch-date-revealed |website=Tom's Hardware |language=en-US |access-date=November 10, 2022 |archive-date=November 10, 2022 |archive-url=https://web.archive.org/web/20221110035431/https://www.tomshardware.com/news/intel-sapphire-rapids-launch-date-revealed |url-status=live }}</ref>
+
+The server processor lineup was released on January 10, 2023, and the workstation processor lineup was released on February 15, 2023.<ref>{{Cite web |title=Intel Launches New Xeon Workstation Processors – the Ultimate... |url=https://www.intel.com/content/www/us/en/newsroom/news/intel-launches-new-xeon-workstation-processors.html |access-date=2023-02-17 |website=Intel |language=en |archive-date=February 16, 2023 |archive-url=https://web.archive.org/web/20230216230607/https://www.intel.com/content/www/us/en/newsroom/news/intel-launches-new-xeon-workstation-processors.html |url-status=live }}</ref> Those processors were available for shipping on March 14 of that year.<ref>{{Cite web |title=4th Gen Intel Xeon Sprints into the Market |url=https://www.intel.com/content/www/us/en/newsroom/news/4th-gen-intel-xeon-sprints-into-market.html |website=Intel |language=en-US |access-date=April 2, 2023 |archive-date=April 4, 2023 |archive-url=https://web.archive.org/web/20230404043913/https://www.intel.com/content/www/us/en/newsroom/news/4th-gen-intel-xeon-sprints-into-market.html |url-status=live }}</ref>  Intel shipped the millionth of this generation Xeon processors in 2023.<ref>Intel Corporation, [https://www.intel.com/content/www/us/en/newsroom/news/intel-unveils-future-generation-xeon.html Intel Unveils Future-Generation Xeon with Robust Performance and Efficiency Architectures] {{Webarchive|url=https://web.archive.org/web/20230829185218/https://www.intel.com/content/www/us/en/newsroom/news/intel-unveils-future-generation-xeon.html |date=August 29, 2023 }}</ref>
+
+== Features ==
+=== CPU ===
+{{Further|Golden Cove (microarchitecture)}}
+* Up to 60 [[Golden Cove]] CPU cores per package<ref name=":0">{{cite web |last=Cutress |first=Ian |date=August 31, 2021 |title=Intel Xeon Sapphire Rapids: How To Go Monolithic with Tiles |url=https://www.anandtech.com/show/16921/intel-sapphire-rapids-nextgen-xeon-scalable-gets-a-tiling-upgrade |website=AnandTech |language=en-US |access-date=November 10, 2022 |archive-date=October 23, 2022 |archive-url=https://web.archive.org/web/20221023221132/https://www.anandtech.com/show/16921/intel-sapphire-rapids-nextgen-xeon-scalable-gets-a-tiling-upgrade |url-status=live }}</ref>
+** Up to 15 cores per tile, a 60 core Xeon Platinum 8490H uses 4 dies populated with 15 cores to have 60 cores in total
+* [[AVX-512#FP16|AVX512-FP16]]<ref>{{cite web |title=Intel® AVX512-FP16 Architecture Specification, June 2021, Revision 1.0, Ref. 347407-001US |url=https://software.intel.com/content/dam/develop/external/us/en/documents-tps/intel-avx512-fp16.pdf |website=Intel |language=en-US |date=June 30, 2021 |access-date=July 4, 2021 |archive-date=July 1, 2021 |archive-url=https://web.archive.org/web/20210701082037/https://software.intel.com/content/dam/develop/external/us/en/documents-tps/intel-avx512-fp16.pdf |url-status=live }}</ref>
+* [[Transactional Synchronization Extensions#TSX Suspend Load Address Tracking|TSX Suspend Load Address Tracking (<code>TSXLDTRK</code>)]]<ref name="intel-arch-extensions">{{cite web |title=Intel® Architecture Instruction Set Extensions and Future Features Programming Reference |url=https://software.intel.com/content/dam/develop/external/us/en/documents/architecture-instruction-set-extensions-programming-reference.pdf |website=Intel |language=en-US |date=May 2021 |access-date=November 10, 2022 |archive-date=October 22, 2020 |archive-url=https://web.archive.org/web/20201022100519/https://software.intel.com/content/dam/develop/external/us/en/documents/architecture-instruction-set-extensions-programming-reference.pdf |url-status=live }}</ref>
+* [[Advanced Matrix Extensions]] (AMX)<ref name=":0"/>
+* [https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html Trust Domain Extensions (TDX)], a collection of technologies to help deploy hardware-isolated virtual machines (VMs) called trust domains (TDs)<ref>{{Cite web |last=Shah |first=Agam |title=Intel's TDX Goes Through the Grind Ahead of Mass Release to Cloud |url=https://www.enterpriseai.news/2023/04/25/intels-tdx-goes-through-the-grind-ahead-of-mass-release-to-cloud/ |website=EnterpriseAI |date=April 25, 2023 |access-date=May 29, 2023 |archive-date=May 29, 2023 |archive-url=https://web.archive.org/web/20230529172412/https://www.enterpriseai.news/2023/04/25/intels-tdx-goes-through-the-grind-ahead-of-mass-release-to-cloud/ |url-status=live }}</ref>
+* [[User Interrupts]] (UINTR), a new architectural feature allowing interrupts to be delivered to user-mode software without kernel involvement.<ref>{{Cite web |last=Larabel |first=Michael |date=April 10, 2023 |title=Intel User Interrupts Still Baking For Linux 6.5+ With Sapphire Rapids |url=https://www.phoronix.com/news/Linux-SPR-Intel-User-Interrupts |access-date=September 1, 2024 |website=Phoronix |language=en-US |archive-date=March 5, 2024 |archive-url=https://web.archive.org/web/20240305070248/https://www.phoronix.com/news/Linux-SPR-Intel-User-Interrupts |url-status=live }}</ref><ref>{{Cite web |title=Intel 64 and IA-32 Architectures Software Developers Manual, Volume 3, Chapter 7: User Interrupts |url=https://cdrdv2.intel.com/v1/dl/getContent/671200 |website=Intel |access-date=September 1, 2024 |archive-date=April 25, 2022 |archive-url=https://web.archive.org/web/20220425144301/https://cdrdv2.intel.com/v1/dl/getContent/671200 |url-status=live }}</ref><ref>{{Cite web |title=Linux Kernel Patches for User Interrupts |url=https://github.com/intel/uintr-linux-kernel |website=GitHub |access-date=September 1, 2024 |archive-date=September 1, 2024 |archive-url=https://web.archive.org/web/20240901140134/https://github.com/intel/uintr-linux-kernel |url-status=live }}</ref>
+
+=== Accelerators ===
+* In-Field Scan (IFS), a technology that allows for testing the processor for potential hardware faults without taking it completely offline<ref>{{Cite web |last=Larabel |first=Michael |date=December 16, 2022 |title=Intel IFS Ready To Weed Out Faulty Silicon With Linux 6.2 |url=https://www.phoronix.com/news/Linux-6.2-x86-Microcode |access-date=January 13, 2023 |website=Phoronix |language=en-US |archive-date=January 13, 2023 |archive-url=https://web.archive.org/web/20230113030500/https://www.phoronix.com/news/Linux-6.2-x86-Microcode |url-status=live }}</ref>
+* Data Streaming Accelerator (DSA), allows for speeding up data copy and transformation between different kinds of storage<ref>{{Cite web |last=Jiang |first=Dave |date=November 20, 2019 |title=Introducing the Intel® Data Streaming Accelerator (Intel® DSA) |url=https://01.org/blogs/2019/introducing-intel-data-streaming-accelerator |access-date=November 10, 2022 |website=01 Intel Open Source |language=en-US |archive-date=November 10, 2022 |archive-url=https://web.archive.org/web/20221110114453/https://01.org/blogs/2019/introducing-intel-data-streaming-accelerator |url-status=live }}</ref><ref name="phoronix_spr_accel">{{Cite web |last=Larabel |first=Michael |date=January 13, 2023 |title=Setting Up Intel 4th Gen Xeon Scalable "Sapphire Rapids" For Accelerator Use |url=https://www.phoronix.com/review/intel-accelerators-linux |access-date=January 13, 2023 |website=Phoronix |language=en-US}}</ref>
+* QuickAssist Technology (QAT), allows for improved performance of compression and encryption tasks<ref name="phoronix_spr_accel" />
+* Dynamic Load Balancer (DLB), allows for offloading tasks of load balancing, packet prioritization and queue management<ref name="phoronix_spr_accel" />
+* In-Memory Analytics Accelerator (IAA), allows accelerating in-memory databases and big data analytics<ref name="phoronix_spr_accel" />
+
+Not all accelerators are available in all processor models. Some accelerators are available under the Intel On Demand program, also known as Software Defined Silicon (SDSi), where a license is required to activate a given accelerator that is physically present in the processor. The license can be obtained as a one-time purchase or as a paid subscription. Activating the license requires support in the operating system. A driver with the necessary support was added in Linux kernel version 6.2.<ref>{{Cite web |last=Larabel |first=Michael |date=November 23, 2022 |title=Intel Details The Accelerators & Security Features For On Demand / Software Defined Silicon |url=https://www.phoronix.com/news/Intel-On-Demand-Details |access-date=January 13, 2023 |website=Phoronix |language=en-US |archive-date=January 13, 2023 |archive-url=https://web.archive.org/web/20230113215441/https://www.phoronix.com/news/Intel-On-Demand-Details |url-status=live }}</ref><ref name="phoronix_spr_accel" />
+
+=== I/O ===
+* [[PCI Express#PCI Express 5.0|PCI Express 5.0]]<ref name=":0"/>
+* [[Direct Media Interface|Direct Media Interface 4.0]]
+* 8-channel [[DDR5 SDRAM|DDR5]] ECC memory support up to DDR5-4800, up to 2 DIMMs per channel<ref name="tomshardware20201230" />
+* On-package [[High Bandwidth Memory|High Bandwidth Memory 2.0e]] memory as L4 cache on Xeon Max models<ref name="tomshardware20201230" >{{Cite web |last=Shilov |first=Anton |date=December 30, 2020 |title=Intel Confirms On-Package HBM Memory Support for Sapphire Rapids |url=https://www.tomshardware.com/news/sapphire-rapids-hbm |website=Tom's Hardware |language=en-US |access-date=January 1, 2021 |archive-date=January 1, 2021 |archive-url=https://web.archive.org/web/20210101015648/https://www.tomshardware.com/news/sapphire-rapids-hbm |url-status=live }}</ref><ref>{{Cite web |last=Cutress |first=Ian |date=November 15, 2021 |title=Intel: Sapphire Rapids With 64 GB of HBM2e, Ponte Vecchio with 408 MB L2 Cache |url=https://www.anandtech.com/show/17067/intel-sapphire-rapids-with-64-gb-of-hbm2e-ponte-vecchio-with-408-mb-l2-cache |website=AnandTech |language=en-US |access-date=November 10, 2022 |archive-date=December 4, 2022 |archive-url=https://web.archive.org/web/20221204230620/https://www.anandtech.com/show/17067/intel-sapphire-rapids-with-64-gb-of-hbm2e-ponte-vecchio-with-408-mb-l2-cache |url-status=live }}</ref>
+* [[Compute Express Link]] 1.1<ref name=":0"/>
+
+=== Die configurations ===
+
+Sapphire Rapids come in two varieties: the low-core-count variety uses a single die (MCC), and the high-core-count variety uses multiple dies on a single package (XCC).
+
+==== XCC multi-die configuration ====
+* [[Chiplet|Multi-chiplet chip]] with four tiles linked by [[2.5D integrated circuit|2.5D]] Embedded Multi-die Interconnect Bridges. Each tile is a 400mm<sup>2</sup> [[system on a chip]], providing both compute cores and I/O.<ref>{{cite web |last1=Tyson |first1=Mark |date=August 19, 2021 |title=Intel Sapphire Rapids utillises tiled, modular SoC architecture |url=https://hexus.net/tech/news/cpu/148266-intel-sapphire-rapids-utillises-tiled-modular-soc-architecture/ |website=Hexus |language=en-GB |access-date=November 19, 2022 |archive-date=November 19, 2022 |archive-url=https://web.archive.org/web/20221119190435/https://hexus.net/tech/news/cpu/148266-intel-sapphire-rapids-utillises-tiled-modular-soc-architecture/ |url-status=live }}</ref>
+** Each tile contains 15 [[Golden Cove]] cores, and a single UPI link
+** Each tile's memory controller provides two channels of DDR5 ECC supporting 4 DIMMs (2 per channel) and 1 TB of memory with a maximum of 8 channels, 16 DIMMs, and 4 TB memory across 4 tiles<ref>{{cite web |title=Intel "Sapphire Rapids" Xeon 4-tile MCM Annotated |url=https://www.techpowerup.com/292204/intel-sapphire-rapids-xeon-4-tile-mcm-annotated |website=TechPowerUp |language=en-US |date=February 21, 2022 |access-date=November 19, 2022 |archive-date=November 19, 2022 |archive-url=https://web.archive.org/web/20221119190423/https://www.techpowerup.com/292204/intel-sapphire-rapids-xeon-4-tile-mcm-annotated |url-status=live }}</ref>
+** A tile provides up to 32 [[PCI Express#PCI Express 5.0|PCIe 5.0]] lanes, but one of the eight PCIe controllers of a CPU is usually reserved for [[Direct Media Interface|DMI]], resulting in a maximum of 112 non-chipset lanes. This maximum is only reached in the W-3400 series processors, while the server processors have 80 (20 per tile).<ref>{{cite web |last1=Kennedy |first1=Patrick |title=New Workstation Kingpins Intel Xeon W-3400 Xeon W-2400 and W790 Launch |url=https://www.servethehome.com/new-workstation-kingpins-intel-xeon-w-3400-xeon-w-2400-and-w790-launch-asus/ |website=ServeTheHome |date=February 15, 2023 |access-date=February 23, 2023 |archive-date=February 23, 2023 |archive-url=https://web.archive.org/web/20230223030619/https://www.servethehome.com/new-workstation-kingpins-intel-xeon-w-3400-xeon-w-2400-and-w790-launch-asus/ |url-status=live }}</ref>
+
+== List of Sapphire Rapids processors ==
+
+=== Sapphire Rapids-HBM (High Bandwidth Memory/Xeon Max Series) ===
+Xeon Max processors contain 64 GB of [[High Bandwidth Memory]].
+{| class="wikitable sortable" style="font-size: 100%; text-align: center"
+|- style="line-height:133%"
+! rowspan="2" |Model<br />number
+! rowspan="2" |Cores<br />(threads)
+! rowspan="2" |Base<br />clock
+! colspan="2" |[[Intel Turbo Boost|Turbo Boost]]
+! rowspan="2" |[[Smart cache|Smart<br />cache]]
+! rowspan="2" |[[Thermal design power|TDP]]
+! rowspan="2" |Maxi-<br>mum<br />scala-<br>bility
+! rowspan="2" |[[registered memory|Registered]]<br />[[DDR5 SDRAM|DDR5]]<br />w.&nbsp;[[ECC memory|ECC]]<br />support
+! rowspan="2" |[[Intel Ultra Path Interconnect|UPI]]<br />links
+! rowspan="2" |Release<br />[[MSRP]]<br />([[United States dollar|USD]])
+! rowspan="2" |Launched
+|- style="line-height:120%"
+!All{{Br}}core
+!Single{{Br}}core
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232592/intel-xeon-cpu-max-9480-processor-112-5m-cache-1-90-ghz/specifications.html 9480]
+|56 (112)
+|1.9 GHz
+|2.6 GHz
+| rowspan="5" |3.5 GHz
+|112.5 MB
+| rowspan="5" |350 W
+| rowspan="5" |2S
+| rowspan="5" |4800 MT/s
+| rowspan="3" |4
+|$12980
+|Q1'23
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232594/intel-xeon-cpu-max-9470-processor-105m-cache-2-00-ghz/specifications.html 9470]
+|52 (104)
+|2.0 GHz
+|2.7 GHz
+| rowspan="2" |105.0 MB
+|$11590
+|Q1'23
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232596/intel-xeon-cpu-max-9468-processor-105m-cache-2-10-ghz/specifications.html 9468]
+|48 {{0}}(96)
+|2.1 GHz
+|2.6 GHz
+|{{0}}$9900
+|Q1'23
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232595/intel-xeon-cpu-max-9460-processor-97-5m-cache-2-20-ghz/specifications.html 9460]
+|40 {{0}}(80)
+|2.2 GHz
+|2.7 GHz
+|{{0}}97.5 MB
+| rowspan="2" |3
+|{{0}}$8750
+|Q1'23
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232597/intel-xeon-cpu-max-9462-processor-75m-cache-2-70-ghz/specifications.html 9462]
+|32 {{0}}(64)
+|2.7 GHz
+|3.1 GHz
+|{{0}}75.0 MB
+|{{0}}$7995
+|Q1'23
+|}
+
+=== Sapphire Rapids-SP (Scalable Performance) ===
+With its maximum of 60 cores, Sapphire Rapids-SP competes with [[AMD]]'s [[Epyc]] 8004/9004 Genoa with up to 96 cores and Bergamo with up to 128 cores. Sapphire Rapids [[Xeon]] server processors are scalable from single-socket configurations up to 8 socket configurations.<ref>{{cite web |last1=Robinson |first1=Cliff |date=October 6, 2022 |title=Intel Xeon Sapphire Rapids to Scale to 4 and 8 Sockets |url=https://www.servethehome.com/intel-xeon-sapphire-rapids-to-scale-to-4-and-8-sockets/ |website=ServeTheHome |language=en-US |access-date=November 27, 2022 |archive-date=November 27, 2022 |archive-url=https://web.archive.org/web/20221127183900/https://www.servethehome.com/intel-xeon-sapphire-rapids-to-scale-to-4-and-8-sockets/ |url-status=live }}</ref><ref>{{cite web |title=Intel 4th Gen Xeon Scalable "Sapphire Rapids" Server Processors Launch in January |url=https://www.techpowerup.com/300576/intel-4th-gen-xeon-scalable-sapphire-rapids-server-processors-launch-in-january |website=TechPowerUp |language=en-US |date=November 2, 2022 |access-date=November 27, 2022 |archive-date=November 27, 2022 |archive-url=https://web.archive.org/web/20221127183900/https://www.techpowerup.com/300576/intel-4th-gen-xeon-scalable-sapphire-rapids-server-processors-launch-in-january |url-status=live }}</ref>
+
+Suffixes to denote:<ref>{{Cite web |date=19 January 2024 |title=Intel Xeon Scalable Processor Reference for Lenovo ThinkSystem Servers |url=https://lenovopress.lenovo.com/lp1262-intel-xeon-scalable-processor-comparison |archive-url=https://web.archive.org/web/20240223164527/https://lenovopress.lenovo.com/lp1262-intel-xeon-scalable-processor-comparison |access-date=2024-02-23 |website=Lenovo Press |publisher=[[Lenovo]] |language=en |archive-date=February 23, 2024 |url-status=live }}</ref>
+
+* +: Includes 1 of each of the four accelerators: DSA, IAA, QAT, DLB
+* H: Database and analytics workloads, supports 4S (Xeon Gold) and/or 8S (Xeon Platinum) configurations and includes all of the accelerators
+* M: Media transcode workloads
+* N: Network/5G/Edge workloads (High TPT/Low Latency), some are uniprocessor
+* P: Cloud and [[infrastructure as a service]] (IaaS) workloads
+* Q: Liquid cooling
+* S: Storage & Hyper-converged infrastructure (HCI) workloads
+* T: Long-life use/High thermal case
+* U: Uniprocessor (some workload-specific SKUs may also be uniprocessor)
+* V: Optimized for cloud and [[software as a service]] (SaaS) workloads, some are uniprocessor
+* Y: Speed Select Technology-Performance Profile (SST-PP) enabled (some workload-specific SKUs may also support SST-PP)
+* Y+: Speed Select Technology-Performance Profile (SST-PP) enabled and includes 1 of each of the accelerators.
+
+{| class="wikitable sortable" style="font-size: 100%; text-align: center"
+|- style="line-height:133%"
+! rowspan="2" |Model<br />number
+! rowspan="2" |Cores<br />(threads)
+! rowspan="2" |Base<br />clock
+! colspan="2" |[[Intel Turbo Boost|Turbo Boost]]
+! rowspan="2" |[[Smart cache|Smart<br />cache]]
+! rowspan="2" |[[Thermal design power|TDP]]
+! rowspan="2" |Maxi-<br>mum<br />scala-<br>bility
+! rowspan="2" |[[registered memory|Registered]]<br />[[DDR5 SDRAM|DDR5]]<br />w.&nbsp;[[ECC memory|ECC]]<br />support
+! rowspan="2" |[[Intel Ultra Path Interconnect|UPI]]<br />links
+! rowspan="2" |Release<br />[[MSRP]]<br />([[United States dollar|USD]])
+|- style="line-height:120%"
+!All<br />core
+!Single<br />core
+|-
+! colspan="11" |Xeon Platinum (8400)
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231747/intel-xeon-platinum-8490h-processor-112-5m-cache-1-90-ghz/specifications.html 8490H]
+|60 (120)
+|1.9 GHz
+|2.9 GHz
+|3.5 GHz
+|112.5 MB
+|350 W
+|8S
+| rowspan="30" |4800 MT/s
+|4
+|$17000
+|-
+|8488C
+|48 (96)
+|2.4 GHz
+|3.2 GHz
+|3.8 GHz
+| rowspan="6" |105.0 MB
+|385 W
+| rowspan="9" |2S
+|{{Dunno}}
+|
+|-
+|8487C
+| rowspan="4" |56 (112)
+|1.9 GHz
+|{{Dunno}}
+| rowspan="8" |3.8 GHz
+| rowspan="8" |350 W
+|{{Dunno}}
+|
+|-
+|8481C
+| rowspan="3" |2.0 GHz
+|2.9 GHz
+|{{Dunno}}
+|
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231746/intel-xeon-platinum-8480-processor-105m-cache-2-00-ghz/specifications.html 8480+]
+| rowspan="2" |3.0 GHz
+| rowspan="2" |4
+|$10710
+|-
+|8480C
+|
+|-
+|8478C
+| rowspan="3" |48 (96)
+|2.2 GHz
+|?
+|{{Dunno}}
+|
+|-
+|8475B
+|2.7 GHz
+|3.2 GHz
+| rowspan="2" |97.5 MB
+|{{Dunno}}
+|
+|-
+|8474C
+| rowspan="2" |2.1 GHz
+|{{Dunno}}
+|{{Dunno}}
+|
+|-
+|8473C
+| rowspan="5" |52 (104)
+|2.9 GHz
+|105.0 MB
+|{{Dunno}}
+|
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231745/intel-xeon-platinum-8471n-processor-97-5m-cache-1-80-ghz/specifications.html 8471N]
+|1.8 GHz
+|2.8 GHz
+|3.6 GHz
+|97.5 MB
+|300 W
+|1S
+| rowspan="4" |4
+|$5171
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231727/intel-xeon-platinum-8470q-processor-105m-cache-2-10-ghz/specifications.html 8470Q]
+|2.1 GHz
+|3.2 GHz
+|3.8 GHz
+|105.0 MB
+|350 W
+| rowspan="5" |2S
+|$9410
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231748/intel-xeon-platinum-8470n-processor-97-5m-cache-1-70-ghz/specifications.html 8470N]
+|1.7 GHz
+|2.7 GHz
+|3.6 GHz
+|97.5 MB
+|300 W
+|$9520
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231728/intel-xeon-platinum-8470-processor-105m-cache-2-00-ghz/specifications.html 8470]
+|2.0 GHz
+|3.0 GHz
+| rowspan="6" |3.8 GHz
+|105.0 MB
+| rowspan="2" |350 W
+|$9359
+|-
+|8469C
+| rowspan="4" |48 (96)
+|2.6 GHz
+|3.1 GHz
+| rowspan="2" |97.5 MB
+|{{Dunno}}
+|
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231739/intel-xeon-platinum-8468v-processor-97-5m-cache-2-40-ghz/specifications.html 8468V]
+|2.4 GHz
+|2.9 GHz
+| rowspan="2" |330 W
+|3
+|$7121
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/231750/intel-xeon-platinum-8468h-processor-105m-cache-2-10-ghz/specifications.html 8468H]
+| rowspan="3" |2.1 GHz
+|3.0 GHz
+| rowspan="3" |105.0 MB
+|8S
+| rowspan="2" |4
+|$13923
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231735/intel-xeon-platinum-8468-processor-105m-cache-2-10-ghz/specifications.html 8468]
+|3.1 GHz
+| rowspan="2" |350 W
+| rowspan="3" |2S
+|$7214
+|-
+|8465C
+|52 (104)
+|2.9 GHz
+|{{Dunno}}
+|
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232383/intel-xeon-platinum-8462y-processor-60m-cache-2-80-ghz/specifications.html 8462Y+]
+|32 (64)
+|2.8 GHz
+|3.6 GHz
+|4.1 GHz
+|60.0 MB
+| rowspan="3" |300 W
+|3
+|$5945
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231741/intel-xeon-platinum-8461v-processor-97-5m-cache-2-20-ghz/specifications.html 8461V]
+|48 (96)
+|2.2 GHz
+| rowspan="2" |2.8 GHz
+| rowspan="2" |3.7 GHz
+|97.5 MB
+|1S
+|0
+|$4491
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231736/intel-xeon-platinum-8460y-processor-105m-cache-2-00-ghz/specifications.html 8460Y+]
+| rowspan="2" |40 (80)
+|2.0 GHz
+| rowspan="2" |105.0 MB
+|2S
+| rowspan="2" |4
+|$5558
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231744/intel-xeon-platinum-8460h-processor-105m-cache-2-20-ghz/specifications.html 8460H]
+|2.2 GHz
+|3.1 GHz
+| rowspan="2" |3.8 GHz
+|330 W
+|8S
+|$10710
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231742/intel-xeon-platinum-8458p-processor-82-5m-cache-2-70-ghz/specifications.html 8458P]
+|44 (88)
+|2.7 GHz
+|3.2 GHz
+| rowspan="2" |82.5 MB
+|350 W
+|2S
+|3
+|$7121
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231738/intel-xeon-platinum-8454h-processor-82-5m-cache-2-10-ghz/specifications.html 8454H]
+|32 (64)
+|2.1 GHz
+|2.7 GHz
+|3.4 GHz
+|270 W
+|8S
+| rowspan="4" |4
+|$6540
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231761/intel-xeon-platinum-8452y-processor-67-5m-cache-2-00-ghz/specifications.html 8452Y]
+|36 (72)
+| rowspan="2" |2.0 GHz
+|2.8 GHz
+|3.2 GHz
+|67.5 MB
+|300 W
+|2S
+|$3995
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231756/intel-xeon-platinum-8450h-processor-75m-cache-2-00-ghz/specifications.html 8450H]
+|28 (56)
+|2.6 GHz
+|3.5 GHz
+|75.0 MB
+|250 W
+| rowspan="2" |8S
+|$4708
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231749/intel-xeon-platinum-8444h-processor-45m-cache-2-90-ghz/specifications.html 8444H]
+|16 (32)
+|2.9 GHz
+|3.2 GHz
+|4.0 GHz
+|45.0 MB
+|270 W
+|$4234
+|-
+|8432C
+|40 (80)
+|{{Dunno}}
+|{{Dunno}}
+|3.8 GHz
+|{{Dunno}}
+|350 W
+| rowspan="2" |2S
+|{{Dunno}}
+|
+|-
+|8422C
+|36 (72)
+|{{Dunno}}
+|{{Dunno}}
+|{{Dunno}}
+|{{Dunno}}
+|
+|{{Dunno}}
+|
+|-
+! colspan="11" |Xeon Gold (5400 and 6400)
+|-
+|6462C
+| rowspan="6" |32 (64)
+|3.3 GHz
+|{{Dunno}}
+|{{Dunno}}
+| rowspan="6" |60.0 MB
+|{{Dunno}}
+| rowspan="5" |2S
+| rowspan="13" |4800 MT/s
+|{{Dunno}}
+|
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232386/intel-xeon-gold-6458q-processor-60m-cache-3-10-ghz/specifications.html 6458Q]
+|3.1 GHz
+| colspan="2" |4.0 GHz
+|350 W
+|3
+|$6416
+|-
+|6456C
+|2.9 GHz
+|3.3 GHz
+|4.1 GHz
+|280 W
+|{{Dunno}}
+|
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231733/intel-xeon-gold-6454s-processor-60m-cache-2-20-ghz/specifications.html 6454S]
+|2.2 GHz
+|2.8 GHz
+|3.4 GHz
+|270 W
+|4
+|$3157
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232384/intel-xeon-gold-6448y-processor-60m-cache-2-10-ghz/specifications.html 6448Y]
+|2.1 GHz
+|3.0 GHz
+| rowspan="3" |4.1 GHz
+|225 W
+| rowspan="15" |3
+|$3583
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232391/intel-xeon-gold-6448h-processor-60m-cache-2-40-ghz/specifications.html 6448H]
+|2.4 GHz
+|3.2 GHz
+|250 W
+|4S
+|$3658
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232385/intel-xeon-gold-6444y-processor-45m-cache-3-60-ghz/specifications.html 6444Y]
+|16 (32)
+|3.6 GHz
+|4.0 GHz
+|45.0 MB
+|270 W
+| rowspan="5" |2S
+|$3622
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232380/intel-xeon-gold-6442y-processor-60m-cache-2-60-ghz/specifications.html 6442Y]
+|24 (48)
+|2.6 GHz
+|3.3 GHz
+| rowspan="2" |4.0 GHz
+| rowspan="4" |60.0 MB
+|225 W
+|$2878
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232382/intel-xeon-gold-6438y-processor-60m-cache-2-00-ghz/specifications.html 6438Y+]
+| rowspan="3" |32 (64)
+| rowspan="2" |2.0 GHz
+|2.8 GHz
+| rowspan="3" |205 W
+|$3141
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232397/intel-xeon-gold-6438n-processor-60m-cache-2-00-ghz/specifications.html 6438N]
+|2.7 GHz
+|3.6 GHz
+|$3351
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232398/intel-xeon-gold-6438m-processor-60m-cache-2-20-ghz/specifications.html 6438M]
+|2.2 GHz
+|2.8 GHz
+|3.9 GHz
+|$3273
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232387/intel-xeon-gold-6434h-processor-22-5m-cache-3-70-ghz/specifications.html 6434H]
+| rowspan="2" |8 (16)
+| rowspan="2" |3.7 GHz
+| colspan="2" rowspan="2" |4.1 GHz
+| rowspan="2" |22.5 MB
+| rowspan="2" |195 W
+|4S
+|$3070
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232375/intel-xeon-gold-6434-processor-22-5m-cache-3-70-ghz/specifications.html 6434]
+| rowspan="4" |2S
+|$2607
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231737/intel-xeon-gold-6430-processor-60m-cache-2-10-ghz/specifications.html 6430]
+| rowspan="2" |32 (64)
+|2.1 GHz
+|2.6 GHz
+|3.4 GHz
+| rowspan="2" |60.0 MB
+|270 W
+|4400 MT/s
+|$2128
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232394/intel-xeon-gold-6428n-processor-60m-cache-1-80-ghz/specifications.html 6428N]
+|1.8 GHz
+|2.5 GHz
+|3.8 GHz
+| rowspan="4" |185 W
+|4000 MT/s
+|$3200
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232377/intel-xeon-gold-6426y-processor-37-5m-cache-2-50-ghz/specifications.html 6426Y]
+|16 (32)
+|2.5 GHz
+|3.3 GHz
+|4.1 GHz
+|37.5 MB
+|4800 MT/s
+|$1517
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232395/intel-xeon-gold-6421n-processor-60m-cache-1-80-ghz/specifications.html 6421N]
+|32 (64)
+|1.8 GHz
+|2.6 GHz
+|3.6 GHz
+| rowspan="2" |60.0 MB
+|1S
+|4400 MT/s
+|$2368
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232390/intel-xeon-gold-6418h-processor-60m-cache-2-10-ghz/specifications.html 6418H]
+|24 (48)
+|2.1 GHz
+| rowspan="2" |2.9 GHz
+|4.0 GHz
+| rowspan="2" |4S
+| rowspan="3" |4800 MT/s
+|$2065
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232389/intel-xeon-gold-6416h-processor-45m-cache-2-20-ghz/specifications.html 6416H]
+|18 (36)
+|2.2 GHz
+|4.2 GHz
+|45.0 MB
+|165 W
+|$1444
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/231731/intel-xeon-gold-6414u-processor-60m-cache-2-00-ghz/specifications.html 6414U]
+|32 (64)
+| rowspan="3" |2.0 GHz
+|2.6 GHz
+|3.4 GHz
+|60.0 MB
+|250 W
+|1S
+|0
+|$2296
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232381/intel-xeon-gold-5420-processor-52-5m-cache-2-00-ghz/specifications.html 5420+]
+|28 (56)
+|2.7 GHz
+|4.1 GHz
+|52.5 MB
+|205 W
+| rowspan="5" |2S
+| rowspan="2" |4400 MT/s
+| rowspan="5" |3
+|$1848
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232379/intel-xeon-gold-5418y-processor-45m-cache-2-00-ghz/specifications.html 5418Y]
+| rowspan="2" |24 (48)
+|2.8 GHz
+| rowspan="2" |3.8 GHz
+| rowspan="2" |45.0 MB
+|185 W
+|$1483
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232392/intel-xeon-gold-5418n-processor-45m-cache-1-80-ghz/specifications.html 5418N]
+|1.8 GHz
+|2.6 GHz
+|165 W
+|4000 MT/s
+|$1664
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232396/intel-xeon-gold-5416s-processor-30m-cache-2-00-ghz/specifications.html 5416S]
+|16 (32)
+|2.0 GHz
+|2.8 GHz
+|4.0 GHz
+|30.0 MB
+| rowspan="2" |150 W
+| rowspan="4" |4400 MT/s
+|$944
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232373/intel-xeon-gold-5415-processor-22-5m-cache-2-90-ghz/specifications.html 5415+]
+|8 (16)
+|2.9 GHz
+|3.6 GHz
+|4.1 GHz
+|22.5 MB
+|$1066
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232374/intel-xeon-gold-5412u-processor-45m-cache-2-10-ghz/specifications.html 5412U]
+| rowspan="2" |24 (48)
+|2.1 GHz
+|2.9 GHz
+| rowspan="2" |3.9 GHz
+| rowspan="2" |45.0 MB
+|185 W
+| rowspan="2" |1S
+|0
+|$1113
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232393/intel-xeon-gold-5411n-processor-45m-cache-1-90-ghz/specifications.html 5411N]
+|1.9 GHz
+|2.8 GHz
+|165 W
+|3
+|$1388
+|-
+! colspan="11" |Xeon Silver (4400)
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232378/intel-xeon-silver-4416-processor-37-5m-cache-2-00-ghz/specifications.html 4416+]
+|20 (40)
+| rowspan="2" |2.0 GHz
+|2.9 GHz
+| rowspan="2" |3.9 GHz
+|37.5 MB
+|165 W
+| rowspan="3" |2S
+| rowspan="3" |4000 MT/s
+| rowspan="3" |2
+|$1176
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232376/intel-xeon-silver-4410y-processor-30m-cache-2-00-ghz/specifications.html 4410Y]
+|12 (24)
+|2.8 GHz
+|30.0 MB
+| rowspan="2" |150 W
+|$563
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232388/intel-xeon-silver-4410t-processor-26-25m-cache-2-70-ghz/specifications.html 4410T]
+|10 (20)
+|2.7 GHz
+|3.4 GHz
+|4.0 GHz
+|26.25 MB
+|$624
+|-
+! colspan="11" |Xeon Bronze (3400, 3500)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236639/intel-xeon-bronze-3508u-processor-22-5m-cache-2-10-ghz.html 3508U]
+| rowspan="2" |8 (8)
+|2.1 GHz
+| colspan="2" |2.2 GHz
+| rowspan="2" |22.5 MB
+| rowspan="2" |125 W
+| rowspan="2" |1S
+|4400 MT/s
+| rowspan="2" |0
+| rowspan="2" |$415-$425
+|-
+|[https://www.intel.com/content/www/us/en/products/sku/232372/intel-xeon-bronze-3408u-processor-22-5m-cache-1-80-ghz/specifications.html 3408U]
+|1.8 GHz
+| colspan="2" |1.9 GHz
+|4000 MT/s
+|}
+
+=== Sapphire Rapids-WS (Workstation) ===
+[[File:20K-Res Gaming! We Challenge The Highest Resolution with The Fastest PC! (极客湾Geekerwan) 04.png|thumb|56-core CPU Intel Xeon w-3495X equipped with 256 GiB DDR5 RAM]]
+With its maximum of 60 cores, Sapphire Rapids-WS competes with [[Advanced Micro Devices|AMD]]'s Threadripper PRO 5000WX Chagall with up to 64 cores.<ref>{{cite web |last1=Liu |first1=Zhiye |date=July 23, 2022 |title=Intel Sapphire Rapids Workstation Specs Leaked: Up To 56 Cores, 350W TDP |url=https://www.tomshardware.com/news/intel-xeon-sapphire-rapids-ws-specs-leaked-up-to-56-cores-350w-tdp |website=Tom's Hardware |language=en-US |access-date=November 24, 2022 |archive-date=November 19, 2022 |archive-url=https://web.archive.org/web/20221119175421/https://www.tomshardware.com/news/intel-xeon-sapphire-rapids-ws-specs-leaked-up-to-56-cores-350w-tdp |url-status=live }}</ref> Like Intel's [[Intel Core|Core]] product segmentation into i3, i5, i7 and i9, Sapphire Rapids-WS is labeled Xeon w3, w5, w7 and w9.<ref>{{cite web |last1=Mujtaba |first1=Hassan |date=July 23, 2022 |title=Intel Sapphire Rapids-WS Xeon Workstation CPU Lineup Specs Leaked: Xeon W9 Up To 56 Cores, Xeon W7 Up To 28 Cores, Xeon W5 Up To 16 Cores |url=https://wccftech.com/intel-sapphire-rapids-ws-xeon-workstation-cpu-lineup-specs-leaked-xeon-w9-up-to-56-cores-xeon-w7-up-to-28-cores-xeon-w5-up-to-16-cores/ |website=Wccftech |language=en-US |access-date=November 24, 2022 |archive-date=November 24, 2022 |archive-url=https://web.archive.org/web/20221124172429/https://wccftech.com/intel-sapphire-rapids-ws-xeon-workstation-cpu-lineup-specs-leaked-xeon-w9-up-to-56-cores-xeon-w7-up-to-28-cores-xeon-w5-up-to-16-cores/ |url-status=live }}</ref> Sapphire Rapids-WS was unveiled in February 2023, and was made available for OEMs in March.<ref>{{Cite web |title=Intel Launches New Xeon Workstation Processors – the Ultimate Solution for Professionals |url=https://www.intel.com/content/www/us/en/newsroom/news/intel-launches-new-xeon-workstation-processors.html |website=Intel |language=en-US |access-date=February 16, 2023 |archive-date=February 15, 2023 |archive-url=https://web.archive.org/web/20230215225351/https://www.intel.com/content/www/us/en/newsroom/news/intel-launches-new-xeon-workstation-processors.html |url-status=live }}</ref><ref>{{Cite web |last=Chiappetta |first=Marco |date=February 16, 2023 |title=New Intel Xeon W Processors Offer Massive Performance Boosts For High-End Desktops And Workstations |url=https://www.forbes.com/sites/marcochiappetta/2023/02/16/new-intel-xeon-w-processors-offer-massive-performance-boosts-for-high-end-desktops-and-workstations/ |website=Forbes |language=en-US |access-date=February 16, 2023 |archive-date=February 16, 2023 |archive-url=https://web.archive.org/web/20230216213418/https://www.forbes.com/sites/marcochiappetta/2023/02/16/new-intel-xeon-w-processors-offer-massive-performance-boosts-for-high-end-desktops-and-workstations/ |url-status=live }}</ref> CPUs with "X" suffix have its multiplier unlocked for [[overclocking]].<ref>{{Cite web |last=Alcorn |first=Paul |date=February 15, 2023 |title=Intel Launches Overclockable Xeon W CPUs up to 56 Cores: a Return to HEDT-Class Chips |url=https://www.tomshardware.com/news/intel-xeon-w-3400-w-2400-cpu-launch-hedt-overclock |website=Tom's Hardware |language=en |access-date=February 16, 2023 |archive-date=February 15, 2023 |archive-url=https://web.archive.org/web/20230215192351/https://www.tomshardware.com/news/intel-xeon-w-3400-w-2400-cpu-launch-hedt-overclock |url-status=live }}</ref>
+
+* No suffix letter: Locked clock multiplier
+* X: Unlocked clock multiplier (adjustable with no ratio limit)
+* Xeon W-2400/2500 uses a monolithic design and supports up to 64 [[PCI Express|PCI Express 5.0]] lanes, while Xeon W-3400/3500 uses a [[chiplet]] design and supports up to 112 lanes. Both support 8 [[Direct Media Interface|DMI 4.0]] lanes. 
+
+{| class="wikitable sortable" style="text-align:center;"
+|- style="line-height:120%"
+! rowspan="3" |Model
+! rowspan="3" |Cores<br/>(threads)
+! colspan="3" |Clock rate ([[Hertz|GHz]])
+! rowspan="3" |[[Smart cache|Smart<br />cache]]
+! rowspan="3" |[[Registered memory|Registered]]<br />[[DDR5 SDRAM|DDR5]]<br />w.&nbsp;[[ECC memory|ECC]]<br />support
+! colspan="2" |[[Thermal design power|TDP]]
+! rowspan="3" |Release<br />[[MSRP]]<br />([[United States dollar|USD]])
+|-
+! rowspan="2" |Base
+! colspan="2" |[[Intel Turbo Boost|Turbo Boost]]
+! rowspan="2" |Base
+! rowspan="2" |Turbo
+|-
+!2.0
+!3.0
+|-
+! colspan="10" |Xeon W-3400 (SPR-112L)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233483/intel-xeon-w93495x-processor-105m-cache-1-90-ghz.html w9-3495X]
+|56 (112)
+|1.9
+| rowspan="5" |4.6
+| rowspan="5" |4.8
+|105 MB
+| rowspan="7" |8-channel<br />4800 MT/s<br />4 TB
+|350 W
+| rowspan="2" |420 W
+|$5889
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233419/intel-xeon-w93475x-processor-82-5m-cache-2-20-ghz.html w9-3475X]
+|36 (72)
+|2.2
+|82.5 MB
+| rowspan="2" |300 W
+|$3739
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233417/intel-xeon-w73465x-processor-75m-cache-2-50-ghz.html w7-3465X]
+|28 (56)
+| rowspan="2" |2.5
+|75.0 MB
+|360 W
+|$2889
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233479/intel-xeon-w73455-processor-67-5m-cache-2-50-ghz.html w7-3455]
+|24 (48)
+|67.5 MB
+| rowspan="4" |270 W
+| rowspan="4" |324 W
+|$2489
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233478/intel-xeon-w73445-processor-52-5m-cache-2-60-ghz.html w7-3445]
+|20 (40)
+|2.6
+|52.5 MB
+|$1989
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233421/intel-xeon-w53435x-processor-45m-cache-3-10-ghz.html w5-3435X]
+|16 (32)
+|3.1
+|4.5
+|4.7
+|45.0 MB
+|$1589
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233482/intel-xeon-w53425-processor-30m-cache-3-20-ghz.html w5-3425]
+|12 (24)
+|3.2
+|4.4
+|4.6
+|30.0 MB
+|$1189
+|-
+! colspan="10" |Xeon W-2400 (SPR-64L)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233416/intel-xeon-w72495x-processor-45m-cache-2-50-ghz.html w7-2495X]
+|24 (48)
+|2.5
+| rowspan="2" |4.6
+| rowspan="2" |4.8
+|45.0 MB
+| rowspan="5" |4-channel<br />4800 MT/s<br />2 TB
+| rowspan="2" |225 W
+| rowspan="2" |270 W
+|$2189
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233418/intel-xeon-w72475x-processor-37-5m-cache-2-60-ghz.html w7-2475X]
+|20 (40)
+|2.6
+|37.5 MB
+|$1789
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233415/intel-xeon-w52465x-processor-33-75m-cache-3-10-ghz.html w5-2465X]
+|16 (32)
+|3.1
+|4.5
+|4.7
+|33.75 MB
+| rowspan="2" |200 W
+| rowspan="2" |240 W
+|$1389
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233420/intel-xeon-w52455x-processor-30m-cache-3-20-ghz.html w5-2455X]
+|12 (24)
+|3.2
+| rowspan="2" |4.4
+| rowspan="2" |4.6
+|30.0 MB
+|$1039
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233481/intel-xeon-w52445-processor-26-25m-cache-3-10-ghz.html w5-2445]
+|10 (20)
+| rowspan="2" |3.1
+|26.25 MB
+|175 W
+|210 W
+|$839
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233480/intel-xeon-w32435-processor-22-5m-cache-3-10-ghz.html w3-2435]
+|8 (16)
+|4.3
+|4.5
+|22.5 MB
+| rowspan="3" |4-channel<br/>4400 MT/s<br/>2 TB
+|165 W
+|198 W
+|$669
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233485/intel-xeon-w32425-processor-15m-cache-3-00-ghz.html w3-2425]
+| rowspan="2" |6 (12)
+|3.0
+|4.2
+|4.4
+| rowspan="2" |15.0 MB
+|130 W
+|156 W
+|$529
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/233484/intel-xeon-w32423-processor-15m-cache-2-10-ghz.html w3-2423]
+|2.1
+|4.0
+|4.2
+|120 W
+|144 W
+|$359
+|}
+
+{| class="wikitable sortable" style="text-align:center;"
+|- style="line-height:120%"
+! rowspan="3" |Model
+! rowspan="3" |Cores<br/>(threads)
+! colspan="3" |Clock rate ([[Hertz|GHz]])
+! rowspan="3" |[[Smart cache|Smart<br />cache]]
+! rowspan="3" |[[Registered memory|Registered]]<br />[[DDR5 SDRAM|DDR5]]<br />w.&nbsp;[[ECC memory|ECC]]<br />support
+! colspan="2" |[[Thermal design power|TDP]]
+! rowspan="3" |Release<br />[[MSRP]]<br />([[United States dollar|USD]])
+|-
+! rowspan="2" |Base
+! colspan="2" |[[Intel Turbo Boost|Turbo Boost]]
+! rowspan="2" |Base
+! rowspan="2" |Turbo
+|-
+!2.0
+!3.0
+|-
+! colspan="10" |Xeon W-3500 (SPR-112L)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/240482.html w9-3595X]
+|60 (120)
+|2.0
+| rowspan="7" |4.6
+| rowspan="7" |4.8
+|112.5 MB
+| rowspan="7" |8-channel<br />4800 MT/s<br />4 TB
+|385 W
+|462 W
+|$5889
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/240501.html w9-3575X]
+|44 (88)
+|2.2
+|97.5 MB
+|340 W
+|408 W
+|$3789
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/240486.html w7-3565X]
+|32 (64)
+|2.5
+|82.5 MB
+|335 W
+|402 W
+|$2689
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/240485.html w7-3555]
+|28 (56)
+| rowspan="2" |2.7
+|75.0 MB
+|325 W
+|390 W
+|$2339
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/240487.html w7-3545]
+|24 (48)
+|67.5 MB
+|315 W
+|372 W
+|$2039
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/240483.html w5-3535X]
+|20 (40)
+|2.9
+|52.5 MB
+|300 W
+|360 W
+|$1689
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/240484.html w5-3525]
+|16 (32)
+|3.2
+|45.0 MB
+|290 W
+|348 W
+|$1389
+|-
+! colspan="10" |Xeon W-2500 (SPR-64L)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236878/intel-xeon-w7-2595x-processor-48-75m-cache-2-90-ghz.html w7-2595X]
+|26 (52)
+|2.8
+| rowspan="4" |4.6
+| rowspan="4" |4.8
+|48.75 MB
+| rowspan="7" |4-channel<br />4800 MT/s<br />2 TB
+| rowspan="2" |250 W
+| rowspan="2" |300 W
+|$2039
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236879/intel-xeon-w7-2575x-processor-45m-cache-3-00-ghz.html w7-2575X]
+|22 (44)
+|3.0
+|45.0 MB
+|$1689
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236883/intel-xeon-w5-2565x-processor-37-5m-cache-3-20-ghz.html w5-2565X]
+|18 (36)
+|3.2
+|37.5 MB
+|240 W
+|288 W
+|$1339
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236881/intel-xeon-w5-2555x-processor-33-75m-cache-3-30-ghz.html w5-2555X]
+|14 (28)
+|3.3
+|33.75 MB
+| rowspan="2" |210 W
+| rowspan="2" |252 W
+|$1069
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236877/intel-xeon-w5-2545-processor-30m-cache-3-50-ghz.html w5-2545]
+|12 (24)
+| rowspan="3" |3.5
+|4.5
+|4.7
+|30.0 MB
+|$889
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236880/intel-xeon-w3-2535-processor-26-25m-cache-3-50-ghz.html w3-2535]
+|10 (20)
+|4.4
+|4.6
+|26.25 MB
+|185 W
+|222 W
+|$739
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236882/intel-xeon-w3-2525-processor-22-5m-cache-3-50-ghz.html w3-2525]
+|8 (16)
+|4.3
+|4.5
+|22.5 MB
+|175 W
+|210 W
+|$609
+|}
+
+== See also ==
+* Intel's [[process–architecture–optimization model]]
+* Intel's [[tick–tock model]]
+* [[List of Intel CPU microarchitectures]]
+
+== References ==
+{{Reflist}}
+
+{{Intel processors}}
+{{Intel processor roadmap}}
+
+[[Category:Intel products]]
+[[Category:Intel microprocessors]]
+

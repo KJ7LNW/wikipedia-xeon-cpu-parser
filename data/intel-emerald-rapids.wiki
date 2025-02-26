@@ -1,0 +1,309 @@
+== List of Emerald Rapids processors ==
+=== Emerald Rapids-SP (Scalable Performance) ===
+CPUs in ''italic'' are actually Sapphire Rapids processors, and they still have 1.875 MB of L3 cache per core
+{| class="wikitable sortable" style="font-size: 100%; text-align: center"
+|- style="line-height:120%"
+!Model number
+!Cores<br />(Threads)
+!Base<br />clock
+!All core<br />turbo<br />boost
+!Max turbo<br />boost
+![[Smart cache|Smart<br />Cache]]
+![[Thermal design power|TDP]]
+!Maximum<br />scalability
+![[Registered memory|Registered]]<br/>[[DDR5 SDRAM|DDR5]]<br/>w.&nbsp;[[ECC memory|ECC]]<br/>support
+![[Intel_Ultra_Path_Interconnect|UPI<br/>Links]]
+!Release<br />[[MSRP]]<br />([[United States dollar|USD]])
+|-
+! colspan="11" |Xeon Platinum (8500)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237252/intel-xeon-platinum-8593q-processor-320m-cache-2-2-ghz.html 8593Q]
+| rowspan="3" |64 (128)
+|2.2 GHz
+|3.0 GHz
+| rowspan="4" |3.9 GHz
+| rowspan="3" |320 MB
+|385 W
+| rowspan="3" |2S
+| rowspan="2" |5600 MT/s
+| rowspan="2" |4
+|$12400
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237261/intel-xeon-platinum-8592-processor-320m-cache-1-9-ghz.html 8592+]
+|1.9 GHz
+| rowspan="2" |2.9 GHz
+|350 W
+|$11600
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237554/intel-xeon-platinum-8592v-processor-320m-cache-2-ghz.html 8592V]
+| rowspan="3" |2.0 GHz
+|330 W
+| rowspan="2" |4800 MT/s
+|3
+|$10995
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237268/intel-xeon-platinum-8581v-processor-300m-cache-2-ghz.html 8581V]
+| rowspan="2" |60 (120)
+|2.6 GHz
+| rowspan="5" |300 MB
+|270 W
+|1S
+|0
+|$7568
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237250/intel-xeon-platinum-8580-processor-300m-cache-2-ghz.html 8580]
+|2.9 GHz
+| rowspan="4" |4.0 GHz
+| rowspan="4" |350 W
+|2S
+|5600 MT/s
+|4
+|$10710
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237247/intel-xeon-platinum-8571n-processor-300m-cache-2-4-ghz.html 8571N]
+|52 (104)
+|2.4 GHz
+| rowspan="2" |3.0 GHz
+|1S
+|4800 MT/s
+|0
+|$6839
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237264/intel-xeon-platinum-8570-processor-300m-cache-2-1-ghz.html 8570]
+|56 (112)
+|2.1 GHz
+| rowspan="5" |2S
+| rowspan="3" |5600 MT/s
+| rowspan="2" |4
+|$9595
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237248/intel-xeon-platinum-8568y-processor-300m-cache-2-3-ghz.html 8568Y+]
+|48 (96)
+|2.3 GHz
+|3.2 GHz
+|$6497
+|-
+| [https://ark.intel.com/content/www/us/en/ark/products/237558/intel-xeon-platinum-8562y-processor-60m-cache-2-80-ghz.html 8562Y+]
+|32 (64)
+|2.8 GHz
+|3.8 GHz
+|4.1 GHz
+|60 MB
+|300 W
+|3
+|$5945
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237255/intel-xeon-platinum-8558-processor-260m-cache-2-1-ghz.html 8558]
+| rowspan="3" |48 (96)
+|2.1 GHz
+|3.0 GHz
+| rowspan="3" |4.0 GHz
+| rowspan="3" |260 MB
+|330 W
+|5200 MT/s
+|4
+|$4650
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237259/intel-xeon-platinum-8558p-processor-260m-cache-2-7-ghz.html 8558P]
+|2.7 GHz
+|3.2 GHz
+|350 W
+|5600 MT/s
+|3
+|$6759
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237267/intel-xeon-platinum-8558u-processor-260m-cache-2-ghz.html 8558U]
+|2.0 GHz
+|2.9 GHz
+|300 W
+|1S
+|5200 MT/s
+|0
+|$3720
+|-
+! colspan="11" |Xeon Gold (5500 and 6500)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237566/intel-xeon-gold-6558q-processor-60m-cache-3-20-ghz.html 6558Q]
+| 32 (64)
+|3.2 GHz
+|4.1 GHz
+|4.1 GHz
+|60 MB
+|350 W
+| rowspan="13" |2S
+| rowspan="8" |5200 MT/s
+|3
+|$6416
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237263/intel-xeon-gold-6554s-processor-180m-cache-2-2-ghz.html 6554S]
+| 36 (72)
+|2.2 GHz
+|3.0 GHz
+|4.0 GHz
+|180 MB
+|270 W
+|4
+|$3157
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237563/intel-xeon-gold-6538y-processor-60m-cache-2-20-ghz.html 6548Y+]
+| rowspan="2" |32 (64)
+|2.5 GHz
+|3.5 GHz
+| rowspan="4" |4.1 GHz
+| rowspan="2" |60 MB
+| rowspan="2" |250 W
+| rowspan="11" |3
+|$3726
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237567/intel-xeon-gold-6548n-processor-60m-cache-2-80-ghz.html 6548N]
+|2.8 GHz
+|3.5 GHz
+|$3875
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237569/intel-xeon-gold-6544y-processor-45m-cache-3-60-ghz.html 6544Y]
+|16 (32)
+|3.6 GHz
+|4.1 GHz
+|45 MB
+|270 W
+|$3622
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237559/intel-xeon-gold-6542y-processor-60m-cache-2-90-ghz.html 6542Y]
+|24 (48)
+|2.9 GHz
+|3.6 GHz
+| rowspan="3" |60 MB
+|250 W
+|$2878
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237563/intel-xeon-gold-6538y-processor-60m-cache-2-20-ghz.html 6538Y+]
+| rowspan="2" |32 (64)
+|2.2 GHz
+|3.3 GHz
+|4.0 GHz
+|225 W
+|$3141
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237568/intel-xeon-gold-6538n-processor-60m-cache-2-10-ghz.html 6538N]
+|2.1 GHz
+|2.9 GHz
+|4.1 GHz
+|205 W
+|$3875
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237555/intel-xeon-gold-6534-processor-22-5m-cache-3-90-ghz.html 6534]
+|8 (16)
+|3.9 GHz
+|4.2 GHz
+|4.2 GHz
+|22.5 MB
+|195 W
+| rowspan="2" |4800 MT/s
+|$2816
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237249/intel-xeon-gold-6530-processor-160m-cache-2-1-ghz.html 6530]
+|32 (64)
+|2.1 GHz
+|2.7 GHz
+|4.0 GHz
+|160 MB
+|270 W
+|$2128
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237560/intel-xeon-gold-6526y-processor-37-5m-cache-2-80-ghz.html 6526Y]
+|16 (32)
+|2.8 GHz
+|3.5 GHz
+|3.9 GHz
+|37.5 MB
+|195 W
+|5200 MT/s
+|$1517
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237561/intel-xeon-gold-5520-processor-52-5m-cache-2-20-ghz.html 5520+]
+|28 (56)
+|2.0 GHz
+|3.0 GHz
+|4.0 GHz
+|52.5 MB
+|205 W
+| rowspan="3" |4800 MT/s
+|$1640
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237562/intel-xeon-gold-5515-processor-22-5m-cache-3-20-ghz.html 5515+]
+|8 (16)
+|3.2 GHz
+|3.6 GHz
+|4.1 GHz
+| rowspan="2" |22.5 MB
+|165 W
+|$1099
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237565/intel-xeon-gold-5512u-processor-52-5m-cache-2-10-ghz.html 5512U]
+|28 (56)
+|2.1 GHz
+|3.0 GHz
+|3.7 GHz
+|185 W
+|1S
+|0
+|$1230
+|-
+! colspan="11" |Xeon Silver (4500)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237556/intel-xeon-silver-4516y-processor-45m-cache-2-20-ghz.html 4516Y+]
+|24 (48)
+|2.2 GHz
+|2.9 GHz
+|3.7 GHz
+|45 MB
+|185 W
+| rowspan="5" |2S
+| rowspan="5" |4400 MT/s
+| rowspan="5" |2
+|$1295
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/237557/intel-xeon-silver-4514y-processor-30m-cache-2-00-ghz.html 4514Y]
+|16 (32)
+| rowspan="2" |2.0 GHz
+|2.6 GHz
+|3.4 GHz
+| rowspan="3" |30 MB
+|150 W
+|$780
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236638/intel-xeon-silver-4510t-processor-30m-cache-2-00-ghz.html ''4510T'']
+| rowspan="2" |12 (24)
+|2.8 GHz
+|3.7 GHz
+|115 W
+|$624
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236637/intel-xeon-silver-4510-processor-30m-cache-2-40-ghz.html ''4510'']
+|2.4 GHz
+|3.3 GHz
+| rowspan="2" |4.1 GHz
+|150 W
+|$563
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236636/intel-xeon-silver-4509y-processor-22-5m-cache-2-60-ghz.html''4509Y'']
+|8 (16)
+|2.6 GHz
+|3.6 GHz
+|22.5 MB
+|125 W
+|$563
+|-
+! colspan="11" |Xeon Bronze (3500)
+|-
+|[https://ark.intel.com/content/www/us/en/ark/products/236639/intel-xeon-bronze-3508u-processor-22-5m-cache-2-10-ghz.html ''3508U'']
+|8 (8)
+|2.1 GHz
+| colspan="2" |2.2 GHz
+|22.5 MB
+|125 W
+|1S
+|4400 MT/s
+|0
+|$415-$425
+|}

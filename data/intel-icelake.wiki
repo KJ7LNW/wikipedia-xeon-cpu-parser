@@ -1,0 +1,239 @@
+{{Short description|none}}
+{{one source|date=May 2021}}
+{{further|Ice Lake (microprocessor)}}
+
+== {{anchor|Ice Lake-SP}} "Ice Lake-SP" (10 nm) Scalable Performance ==
+
+* Support for up to 16 [[DIMM]]s of [[DDR4]] memory per CPU socket, maximum 4 TB.
+* Supports up to two sockets<ref>{{cite web|url=https://www.anandtech.com/show/16594/intel-3rd-gen-xeon-scalable-review/2|title=Intel 3rd Gen Xeon Scalable (Ice Lake SP) Review: Generationally Big, Competitively Small|work=Anandtech|first=Andrei|last=Frumusanu|date=6 April 2021|access-date=7 April 2021}}</ref>
+* PCI Express 4.0 lanes: 64
+* -M: Media processing specialized
+* -N: Network & NFV specialized
+* -P: [[IaaS]] cloud specialized
+* -Q: Liquid cooled
+* -S: 512 GB [[Intel SGX|SGX]] enclave per CPU
+* -T: High thermal-case and extended reliability
+* -U: Uniprocessor
+* -V: [[SaaS]] cloud specialized
+* -Y: Supports Intel {{abbr|SST-PP|Speed Select Technology Power Profile}} 2.0
+
+=== Xeon Gold (uniprocessor) ===
+
+{| class="wikitable sortable"
+
+! Model<br />number
+! sSpec<br />number
+! Cores<br />(threads)
+! Frequency
+! [[Intel Turbo Boost|Turbo Boost]]<br />all-core/2.0<br />(/max. 3.0)
+![[CPU cache#Multi-level caches|L2<br />cache]]
+![[CPU cache#Multi-level caches|L3<br />cache]]
+![[Thermal design power|TDP]]
+![[CPU socket|Socket]]
+! I/O bus
+![[Memory controller|Memory]]
+! style="text-align:right;" {{!}} Release date
+! Part<br />number(s)
+! Release<br />price ([[United States dollar|USD]])
+
+<!-- enable when needed by moving above this line
+{{{delim|{{!}}}}} {{{mult|}}}
+-->
+
+|-
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6312U|ark=215282|sspec1=SRKXC|step1=M1|cores=24|threads=48|l3=36|mult=24|turbo=3.1/3.6 GHz|tdp=185|mem=8× DDR4-3200|date=6 April 2021||sock=4189|part1=CD8068904658902|price=$1450}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6314U|ark=212461|sspec1=SRKHL|step1=D2|cores=32|threads=64|l3=48|mult=23|turbo=2.9/3.4 GHz|tdp=205|mem=8× DDR4-3200|date=6 April 2021||sock=4189|part1=CD8068904570101|price=$2600}}
+|}
+
+=== Xeon Silver (dual processor) ===
+
+{| class="wikitable sortable"
+
+! Model<br />number
+! sSpec<br />number
+! Cores<br />(threads)
+! Frequency
+! [[Intel Turbo Boost|Turbo Boost]]<br />all-core/2.0<br />(/max. 3.0)
+![[CPU cache#Multi-level caches|L2<br />cache]]
+![[CPU cache#Multi-level caches|L3<br />cache]]
+![[Thermal design power|TDP]]
+![[CPU socket|Socket]]
+! I/O bus
+![[Memory controller|Memory]]
+! style="text-align:right;" {{!}} Release date
+! Part<br />number(s)
+! Release<br />price ([[United States dollar|USD]])
+
+<!-- enable when needed by moving above this line
+{{{delim|{{!}}}}} {{{mult|}}}
+-->
+
+|-
+
+{{cpulist|lake-e|icelake_e|model=Xeon Silver 4309Y|ark=215275|sspec1=SRKXS|step1=M1|cores=8|threads=16|l3=12|mult=28|turbo=3.4/3.6 GHz|upi=2× 10.4|tdp=105|mem=8× DDR4-2666|date=6 April 2021||sock=4189|part1=CD8068904658102|part2=BX806894309Y|price=$501}}
+{{cpulist|lake-e|icelake_e|model=Xeon Silver 4310T|ark=215283|sspec1=SRKXP|step1=M1|cores=10|threads=20|l3=15|mult=23|turbo=2.9/3.4 GHz|upi=2× 10.4|tdp=105|mem=8× DDR4-2666|date=6 April 2021||sock=4189|part1=CD8068904659001|part2=|price=$555}}
+{{cpulist|lake-e|icelake_e|model=Xeon Silver 4310|ark=215277|sspec1=SRKXN|step1=M1|cores=12|threads=24|l3=18|mult=21|turbo=2.7/3.3 GHz|upi=2× 10.4|tdp=120|mem=8× DDR4-2666|date=6 April 2021||sock=4189|part1=CD8068904657901|part2=BX806894310|price=$501}}
+{{cpulist|lake-e|icelake_e|model=Xeon Silver 4314|ark=215269|sspec1=SRKXL|step1=M1|cores=16|threads=32|l3=24|mult=24|turbo=2.9/3.4 GHz|upi=2× 10.4|tdp=135|mem=8× DDR4-2666|date=6 April 2021||sock=4189|part1=CD8068904655303|part2=BX806894314|price=$694}}
+{{cpulist|lake-e|icelake_e|model=Xeon Silver 4316|ark=215270|sspec1=SRKXH|step1=M1|cores=20|threads=40|l3=30|mult=23|turbo=2.8/3.4 GHz|upi=2× 10.4|tdp=150|mem=8× DDR4-2666|date=6 April 2021||sock=4189|part1=CD8068904656601|part2=BX806894316|price=$1002}}
+|}
+
+=== Xeon Gold (dual processor) ===
+
+{| class="wikitable sortable"
+
+! Model<br />number
+! sSpec<br />number
+! Cores<br />(threads)
+! Frequency
+! [[Intel Turbo Boost|Turbo Boost]]<br />all-core/2.0<br />(/max. 3.0)
+![[CPU cache#Multi-level caches|L2<br />cache]]
+![[CPU cache#Multi-level caches|L3<br />cache]]
+![[Thermal design power|TDP]]
+![[CPU socket|Socket]]
+! I/O bus
+![[Memory controller|Memory]]
+! style="text-align:right;" {{!}} Release date
+! Part<br />number(s)
+! Release<br />price ([[United States dollar|USD]])
+
+<!-- enable when needed by moving above this line
+{{{delim|{{!}}}}} {{{mult|}}}
+-->
+
+|-
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 5315Y|ark=215286|sspec1=SRKXR|step1=M1|cores=8|threads=16|l3=12|mult=32|turbo=3.5/3.6 GHz|upi=3× 11.2|tdp=140|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904665802|part2=|price=$895}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 5317|ark=215272|sspec1=SRKXM|step1=M1|cores=12|threads=24|l3=18|mult=30|turbo=3.4/3.6 GHz|upi=3× 11.2|tdp=150|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904657302|part2=|price=$950}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 5318N|ark=215281|sspec1=SRKXG|step1=M1|cores=24|threads=48|l3=36|mult=21|turbo=2.7/3.4 GHz|upi=3× 11.2|tdp=150|mem=8× DDR4-2666|date=6 April 2021|sock=4189|part1=CD8068904658802|part2=|price=$1375}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 5318S|ark=215279|sspec1=SRKXD|step1=M1|cores=24|threads=48|l3=36|mult=21|turbo=2.6/3.4 GHz|upi=3× 11.2|tdp=165|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904658602|part2=|price=$1667}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 5318Y|ark=215271|sspec1=SRKXE|step1=M1|cores=24|threads=48|l3=36|mult=21|turbo=2.6/3.4 GHz|upi=3× 11.2|tdp=165|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904656703|part2=|price=$1273}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 5320T|ark=215284|sspec1=SRKXJ|step1=M1|cores=20|threads=40|l3=30|mult=23|turbo=2.9/3.5 GHz|upi=3× 11.2|tdp=150|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904659101|part2=|price=$1727}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 5320|ark=215285|sspec1=SRKWU|step1=M1|cores=26|threads=52|l3=39|mult=22|turbo=2.8/3.4 GHz|upi=3× 11.2|tdp=185|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904659201|part2=BX806895320|price=$1555}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6326|ark=215274|sspec1=SRKXK|step1=M1|cores=16|threads=32|l3=24|mult=29|turbo=3.3/3.5 GHz|upi=3× 11.2|tdp=185|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904657502|part2=|price=$1300}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6330|ark=212458|sspec1=SRKHM|step1=D2|cores=28|threads=56|l3=42|mult=20|turbo=2.6/3.1 GHz|upi=3× 11.2|tdp=205|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904572101|part2=BX806896330|price=$1894}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6330N|ark=212286|sspec1=SRKH9|step1=D2|cores=28|threads=56|l3=42|mult=22|turbo=2.6/3.4 GHz|upi=3× 11.2|tdp=165|mem=8× DDR4-2666|date=6 April 2021|sock=4189|part1=CD8068904582501|part2=|price=$2029}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6334|ark=215273|sspec1=SRKXQ|step1=M1|cores=8|threads=16|l3=18|mult=36|turbo=3.6/3.7 GHz|upi=3× 11.2|tdp=165|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904657601|part2=|price=$2214}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6336Y|ark=215280|sspec1=SRKXB|step1=M1|cores=24|threads=48|l3=36|mult=24|turbo=3.0/3.6 GHz|upi=3× 11.2|tdp=185|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904658702|part2=BX806896336Y|price=$1977}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6338T|ark=215278|sspec1=SRKXF|step1=M1|cores=24|threads=48|l3=36|mult=21|turbo=2.7/3.4 GHz|upi=3× 11.2|tdp=165|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904658201|part2=|price=$2742}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6338|ark=212285|sspec1=SRKJ9|step1=D2|cores=32|threads=64|l3=48|mult=20|turbo=2.6/3.2 GHz|upi=3× 11.2|tdp=205|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904572501|part2=|price=$2612}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6338N|ark=212633|sspec1=SRKY2|step1=D2|cores=32|threads=64|l3=48|mult=22|turbo=2.7/3.5 GHz|upi=3× 11.2|tdp=185|mem=8× DDR4-2666|date=6 April 2021|sock=4189|part1=CD8068904722302|part2=|price=$2795}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6342|ark=215276|sspec1=SRKXA|step1=M1|cores=24|threads=48|l3=36|mult=28|turbo=3.3/3.5 GHz|upi=3× 11.2|tdp=230|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904657701|part2=|price=$2529}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6346|ark=212457|sspec1=SRKHN|step1=D2|cores=16|threads=32|l3=36|mult=31|turbo=3.6/3.6 GHz|upi=3× 11.2|tdp=205|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904570201|part2=|price=$2300}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6348|ark=212456|sspec1=SRKHP|step1=D2|cores=28|threads=56|l3=42|mult=26|turbo=3.4/3.5 GHz|upi=3× 11.2|tdp=235|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904572204|part2=|price=$3072}}
+{{cpulist|lake-e|icelake_e|model=Xeon Gold 6354|ark=212460|sspec1=SRKH7|step1=D2|cores=18|threads=36|l3=39|mult=30|turbo=3.6/3.6 GHz|upi=3× 11.2|tdp=205|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904571601|part2=|price=$2445}}
+|}
+
+=== Xeon Platinum (dual processor) ===
+
+{| class="wikitable sortable"
+
+! Model<br />number
+! sSpec<br />number
+! Cores<br />(threads)
+! Frequency
+! [[Intel Turbo Boost|Turbo Boost]]<br />all-core/2.0<br />(/max. 3.0)
+![[CPU cache#Multi-level caches|L2<br />cache]]
+![[CPU cache#Multi-level caches|L3<br />cache]]
+![[Thermal design power|TDP]]
+![[CPU socket|Socket]]
+! I/O bus
+![[Memory controller|Memory]]
+! style="text-align:right;" {{!}} Release date
+! Part<br />number(s)
+! Release<br />price ([[United States dollar|USD]])
+
+<!-- enable when needed by moving above this line
+{{{delim|{{!}}}}} {{{mult|}}}
+-->
+
+|-
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8331C|ark=|sspec1=SRKHK|step1=D2|cores=24|threads=48|l3=36|mult=25|turbo=?/3.5 GHz|upi=3× 11.2|tdp=185|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8333B|ark=|sspec1=SRKHQ|step1=D2|cores=24|threads=48|l3=36|mult=26|turbo=3.1/3.5 GHz|upi=3× 11.2|tdp=205|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8336C|ark=|sspec1=SRKJ5|step1=D2|cores=32|threads=64|l3=48|mult=23|turbo=?/3.5 GHz|upi=3× 11.2|tdp=230|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8338C|ark=|sspec1=SRKJ7|step1=D2|cores=32|threads=64|l3=54|mult=26|turbo=?/3.5 GHz|upi=3× 11.2|tdp=250|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8341C|ark=|sspec1=SRKYJ|step1=|cores=24|threads=48|l3=36|mult=30|turbo=3.6/3.6 GHz|upi=3× 11.2|tdp=270|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8347C|ark=|sspec1=SRKJ6|step1=D2|cores=36|threads=72|l3=54|mult=21|turbo=2.7/3.5 GHz|upi=3× 11.2|tdp=210|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8350C|ark=|sspec1=SRKHE|step1=D2|cores=32|threads=64|l3=|mult=26|turbo=?/3.5 GHz|upi=3× 11.2|tdp=240|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8351N|ark=212288|sspec1=SRKJ3|step1=D2|cores=36|threads=72|l3=54|mult=24|turbo=3.1/3.5 GHz|upi=3× 11.2|tdp=225|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904582702|part2=|price=$3027}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8352M|ark=217215|sspec1=SRKYF|step1=D2|cores=32|threads=64|l3=48|mult=23|turbo=2.8/3.5 GHz|upi=3× 11.2|tdp=185|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904686504|part2=|price=$3864}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8352S|ark=212307|sspec1=SRKJ8|step1=D2|cores=32|threads=64|l3=48|mult=22|turbo=2.8/3.4 GHz|upi=3× 11.2|tdp=205|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904642802|part2=|price=$4046}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8352V|ark=212454|sspec1=SRKJ2|step1=D2|cores=36|threads=72|l3=54|mult=21|turbo=2.5/3.5 GHz|upi=3× 11.2|tdp=195|mem=8× DDR4-2933|date=6 April 2021|sock=4189|part1=CD8068904571501|part2=|price=$3450}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8352Y|ark=212284|sspec1=SRKHG|step1=D2|cores=32|threads=64|l3=48|mult=22|turbo=2.8/3.4 GHz|upi=3× 11.2|tdp=205|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904572401|part2=|price=$3450}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8357C|ark=|sspec1=SRKJ4|step1=D2|cores=32|threads=64|l3=48|mult=27|turbo=3.2/3.5 GHz|upi=3× 11.2|tdp=240|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8358|ark=212282|sspec1=SRKJ1|step1=D2|cores=32|threads=64|l3=48|mult=26|turbo=3.3/3.4 GHz|upi=3× 11.2|tdp=250|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904572302|part2=|price=$3950}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8358P|ark=212308|sspec1=SRKJ0|step1=D2|cores=32|threads=64|l3=48|mult=26|turbo=3.3/3.4 GHz|upi=3× 11.2|tdp=240|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904599101|part2=|price=$3950}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8360Y|ark=212459|sspec1=SRKHF|step1=D2|cores=36|threads=72|l3=54|mult=24|turbo=3.1/3.5 GHz|upi=3× 11.2|tdp=250|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904571901|part2=|price=$4702}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8361C|ark=|sspec1=SRKYL|step1=D2|cores=38|threads=76|l3=57|mult=21|turbo=?/3.5 GHz GHz|upi=3× 11.2|tdp=215|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8362|ark=217216|sspec1=SRKY3|step1=D2|cores=32|threads=64|l3=48|mult=28|turbo=3.5/3.6 GHz|upi=3× 11.2|tdp=265|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904722404|part2=|price=$5488}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8365B|ark=|sspec1=SRKHS|step1=D2|cores=32|threads=64|l3=48|mult=26|turbo=?/? GHz|upi=3× 11.2|tdp=|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8367B|ark=|sspec1=|step1=D2|cores=32|threads=64|l3=48|mult=31|turbo=?/3.6 GHz|upi=3× 11.2|tdp=300|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8368|ark=212455|sspec1=SRKH8|step1=D2|cores=38|threads=76|l3=57|mult=24|turbo=3.2/3.4 GHz|upi=3× 11.2|tdp=270|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904572001|part2=|price=$6302}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8368Q|ark=212289|sspec1=SRKHX|step1=D2|cores=38|threads=76|l3=57|mult=26|turbo=3.3/3.7 GHz|upi=3× 11.2|tdp=270|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904582803|part2=|price=$6743}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8369B|ark=|sspec1=SRKHJ|step1=D2|cores=32|threads=64|l3=48|mult=29|turbo=3.5/3.5 GHz|upi=3× 11.2|tdp=270|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8370C|ark=|sspec1=SRKHC|step1=D2|cores=32|threads=64|l3=48|mult=28|turbo=3.5/3.5 GHz|upi=3× 11.2|tdp=270|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8372C|ark=|sspec1=SRKHY|step1=D2|cores=28|threads=56|l3=42|mult=32|turbo=3.5/3.5 GHz|upi=3× 11.2|tdp=300|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8373C|ark=|sspec1=SRKHB|step1=D2|cores=36|threads=72|l3=54|mult=26|turbo=3.4/3.5 GHz|upi=3× 11.2|tdp=300|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8374B|ark=|sspec1=SRKYK|step1=D2|cores=38|threads=76|l3=57|mult=27|turbo=3.4/3.6 GHz|upi=3× 11.2|tdp=280|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8374C|ark=|sspec1=SRKHD|step1=D2|cores=36|threads=72|l3=54|mult=27|turbo=3.3/3.5 GHz|upi=3× 11.2|tdp=270|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8375C|ark=|sspec1=SRKHA,SRKUS|step1=D2|cores=32|threads=64|l3=54|mult=29|turbo=3.5/3.5 GHz|upi=3× 11.2|tdp=300|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8377A|ark=|sspec1=|step1=D2|cores=36|threads=72|l3=54|mult=28|turbo=?/3.5 GHz|upi=3× 11.2|tdp=330|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8377C|ark=|sspec1=SRKHW,SRKUT|step1=D2|cores=32|threads=64|l3=54|mult=30|turbo=3.5/3.5 GHz|upi=3× 11.2|tdp=330|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8377D|ark=|sspec1=|step1=|cores=32|threads=64|l3=54|mult=30|turbo=?/? GHz|upi=3× 11.2|tdp=?|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8378A|ark=|sspec1=SRKHT|step1=D2|cores=32|threads=64|l3=48|mult=30|turbo=3.5/3.5 GHz|upi=3× 11.2|tdp=300|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8378C|ark=|sspec1=SRKYP|step1=|cores=38|threads=76|l3=57|mult=28|turbo=3.5/3.6 GHz|upi=3× 11.2|tdp=290|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8380|ark=|sspec1=SRKHR|step1=D2|cores=40|threads=80|l3=60|mult=23|turbo=3.0/3.4 GHz|upi=3× 11.2|tdp=270|mem=8× DDR4-3200|date=6 April 2021|sock=4189|part1=CD8068904572601|part2=|price=$8099}}
+{{cpulist|lake-e|icelake_e|model=Xeon Platinum 8383C|ark=|sspec1=SRM91|step1=|cores=40|threads=80|l3=60|mult=27|turbo=?/3.4 GHz GHz|upi=3× 11.2|tdp=270|mem=8× DDR4-3200|date=|sock=4189|part1=|part2=|price=}}
+
+|}
+
+== {{anchor|Ice Lake-W}} "Ice Lake-W" (10 nm) ==
+=== Xeon W-3300 (uniprocessor) ===
+* PCI Express lanes: 64
+* Supports up to 16 DIMMs of DDR4 memory, maximum 4 TB.<ref>{{Cite web|url=https://www.anandtech.com/show/16822/intel-launches-xeon-w-3300-3365-ice-lake-workstations-38-core|title=Intel Launches Xeon W-3300: Ice Lake for Workstations, up to 38 Cores|first=Dr Ian|last=Cutress|website=www.anandtech.com|date=29 July 2021}}</ref>
+
+{| class="wikitable sortable"
+
+! Model<br />number
+! sSpec<br />number
+! Cores<br />(threads)
+! Frequency
+! [[Intel Turbo Boost|Turbo Boost]]<br />all-core/2.0<br />(/max. 3.0)
+![[CPU cache#Multi-level caches|L2<br />cache]]
+![[CPU cache#Multi-level caches|L3<br />cache]]
+![[Thermal design power|TDP]]
+![[CPU socket|Socket]]
+! I/O bus
+![[Memory controller|Memory]]
+! style="text-align:right;" {{!}} Release date
+! Part<br />number(s)
+! Release<br />price ([[United States dollar|USD]])
+
+<!-- enable when needed by moving above this line
+{{{delim|{{!}}}}} {{{mult|}}}
+-->
+
+|-
+{{cpulist|lake-e|icelake_e|model=Xeon W-3323|ark=217247|sspec1=SRKWT|step1=M1|cores=12|threads=24|l3=21|mult=35|turbo=?/3.9 GHz|tdp=220|mem=8× DDR4-3200|date=29 July 2021|sock=4189|part1=CD8068904708502|part2=|price=$949}}
+{{cpulist|lake-e|icelake_e|model=Xeon W-3335|ark=217244|sspec1=SRKWS|step1=M1|cores=16|threads=32|l3=24|mult=34|turbo=?/4.0 GHz|tdp=250|mem=8× DDR4-3200|date=29 July 2021|sock=4189|part1=CD8068904708401|part2=|price=$1299}}
+{{cpulist|lake-e|icelake_e|model=Xeon W-3345|ark=217245|sspec1=SRKSU|step1=D2|cores=24|threads=48|l3=36|mult=30|turbo=?/4.0 GHz|tdp=250|mem=8× DDR4-3200|date=29 July 2021|sock=4189|part1=CD8068904691101|part2=|price=$2499}}
+{{cpulist|lake-e|icelake_e|model=Xeon W-3365|ark=217243|sspec1=SRKSW|step1=D2|cores=32|threads=64|l3=48|mult=27|turbo=?/4.0 GHz|tdp=270|mem=8× DDR4-3200|date=29 July 2021|sock=4189|part1=CD8068904691303|part2=|price=$3499}}
+{{cpulist|lake-e|icelake_e|model=Xeon W-3375|ark=217246|sspec1=SRKSX|step1=D2|cores=38|threads=76|l3=57|mult=25|turbo=?/4.0 GHz|tdp=270|mem=8× DDR4-3200|date=29 July 2021|sock=4189|part1=CD8068904691401|part2=|price=$4499}}
+|}
+
+== {{anchor|Ice Lake-D}} "Ice Lake-D" (10 nm) ==
+=== Xeon D-1700 (uniprocessor) ===
+{{Empty section|date=September 2023}}
+
+=== Xeon D-2700 (uniprocessor) ===
+{{Empty section|date=September 2023}}
+
+=== Xeon D-1800 (uniprocessor) ===
+{{Empty section|date=July 2024}}
+
+=== Xeon D-2800 (uniprocessor) ===
+{{Empty section|date=July 2024}}
+
+== References ==
+{{reflist}}
+
+[[Category:Lists of microprocessors|Intel Xeon (Ice Lake)]]
+[[Category:Intel x86 microprocessors]]
