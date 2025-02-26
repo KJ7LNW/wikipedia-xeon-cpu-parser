@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import re
+import wikitextparser as wtp
 from typing import Dict, List, Optional
 
 def clean_header(header: str) -> Optional[str]:
@@ -107,29 +108,30 @@ def process_cpulist_fields(platform: str, subtype: str, fields: Dict[str, str]) 
             freq = (100 * mult) / 1000  # Convert to GHz
             result['freq'] = f"{freq:.1f} GHz"
         except ValueError:
-            raise ValueError("Invalid multiplier value")
-    else:
-        raise ValueError("Missing multiplier for frequency calculation")
+            pass
     
     return result
 
-def parse_cpulist(cpulist: str) -> Dict[str, str]:
+def parse_cpulist(template: str) -> Dict[str, str]:
     """Parse a cpulist template into processed fields."""
-    # Extract everything between {{ and }}
-    match = re.match(r'\{\{cpulist\|(.*?)\}\}', cpulist, re.DOTALL)
-    if not match:
+    parsed = wtp.parse(template)
+    if not parsed.templates:
         return {}
     
-    content = match.group(1)
-    parts = re.split(r'(?<!\\)\|', content)
+    template = parsed.templates[0]
+    parts = template.string.strip('{}').split('|')
+    if parts[0].strip() != 'cpulist':
+        return {}
     
-    # Extract platform identifiers
-    platform = parts[0].strip()
-    subtype = parts[1].strip() if len(parts) > 1 else ''
+    if len(parts) < 3:
+        return {}
+    
+    platform = parts[1].strip()
+    subtype = parts[2].strip()
     
     # Process key-value pairs
     fields = {}
-    for part in parts[2:]:
+    for part in parts[3:]:
         if '=' in part:
             key, value = part.split('=', 1)
             key = key.strip()
@@ -192,46 +194,62 @@ def parse_sections(filename: str) -> Dict[str, Dict[str, List[Dict[str, str]]]]:
     with open(filename, 'r') as f:
         content = f.read()
         
-        # Find all sections and their content
-        section_matches = re.finditer(r'===\s*(.*?)\s*===\s*\n\s*{\|\s*class="wikitable sortable"\s*\n(.*?)(?=\n===|\Z)', content, re.DOTALL)
+    parsed = wtp.parse(content)
+    
+    # Find all sections
+    for section in parsed.get_sections(level=3):
+        section_name = section.title.strip()
         
-        for match in section_matches:
-            section_name = match.group(1)
-            section_content = match.group(2)
+        # Find the first table in the section
+        tables = section.tables
+        if not tables:
+            continue
             
-            # Get headers
-            headers = []
-            seen_headers = set()
-            header_lines = re.finditer(r'!\s*((?:\[\[.*?\]\]|[^!\n])*)', section_content)
-            
-            for header_match in header_lines:
-                header_text = header_match.group(1).strip()
-                clean_h = clean_header(header_text)
+        table = tables[0]
+        
+        # Get headers
+        headers = []
+        seen_headers = set()
+        
+        # Headers are in the first row
+        if table.data():
+            header_row = table.data()[0]
+            for cell in header_row:
+                clean_h = clean_header(cell.strip())
                 if clean_h and clean_h not in seen_headers:
                     headers.append(clean_h)
                     seen_headers.add(clean_h)
-            
-            # Find all CPU entries
-            cpu_entries = []
-            cpulist_matches = re.finditer(r'\{\{cpulist\|.*?\}\}', section_content)
-            
-            for cpu_match in cpulist_matches:
-                cpulist = cpu_match.group(0)
-                # Extract platform and subtype
-                match = re.match(r'\{\{cpulist\|(.*?)\}\}', cpulist, re.DOTALL)
-                if match:
-                    content = match.group(1)
-                    parts = re.split(r'(?<!\\)\|', content)
-                    platform = parts[0].strip()
-                    subtype = parts[1].strip() if len(parts) > 1 else ''
-                    fields = parse_cpulist(cpulist)
-                    mapped_fields = map_fields_to_headers(fields, headers, platform, subtype)
+        
+        # Find all CPU entries
+        cpu_entries = []
+        templates = section.templates
+        
+        for template in templates:
+            if template.name.strip() == 'cpulist':
+                    parts = template.string.strip('{}').split('|')
+                    if len(parts) >= 3:
+                        platform = parts[1].strip()
+                        subtype = parts[2].strip()
+                        
+                        # Build fields dict from template arguments
+                        fields = {}
+                        for part in parts[3:]:
+                            if '=' in part:
+                                key, value = part.split('=', 1)
+                                key = key.strip()
+                                value = value.strip()
+                                if value:
+                                    fields[key] = value
+                    
+                    # Process fields and map to headers
+                    processed_fields = process_cpulist_fields(platform, subtype, fields)
+                    mapped_fields = map_fields_to_headers(processed_fields, headers, platform, subtype)
                     cpu_entries.append(mapped_fields)
-            
-            sections[section_name] = {
-                'headers': headers,
-                'entries': cpu_entries
-            }
+        
+        sections[section_name] = {
+            'headers': headers,
+            'entries': cpu_entries
+        }
     
     return sections
 
